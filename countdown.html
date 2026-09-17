@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Birthday Countdown 🎂</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <section class="countdown-section">
+
+        <div class="countdown-content">
+
+            <div id="countdown-number">
+                3
+            </div>
+
+            <p id="countdown-text">
+                Get ready, Anu... ❤️
+            </p>
+
+
+            <div id="birthday-reveal">
+
+                <div class="big-cake">
+                    🎂
+                </div>
+
+                <h1>
+                    HAPPY BIRTHDAY!
+                </h1>
+
+                <h2>
+                    Anu ❤️
+                </h2>
+
+                <p>
+                    Your special moment has arrived... ✨
+                </p>
+
+                <button
+                    onclick="window.location.href='final.html'">
+
+                    ❤️ Open Your Final Surprise
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <script>
+
+        const number =
+            document.getElementById("countdown-number");
+
+        const text =
+            document.getElementById("countdown-text");
+
+        const reveal =
+            document.getElementById("birthday-reveal");
+
+        let count = 3;
+
+
+        const countdown =
+            setInterval(function () {
+
+                count--;
+
+                if (count > 0) {
+
+                    number.innerHTML = count;
+
+                } else {
+
+                    clearInterval(countdown);
+
+                    number.style.display = "none";
+
+                    text.style.display = "none";
+
+                    reveal.style.display = "block";
+
+                }
+
+            }, 1500);
+
+    </script>
+
+</body>
+
+</html>

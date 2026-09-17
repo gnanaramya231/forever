@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Three Little Surprises 🎁</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <section class="surprises-section">
+
+        <div class="surprises-content">
+
+            <h1>
+                🎁 Three Little Surprises
+            </h1>
+
+            <p class="surprises-intro">
+                Anu, choose a box...
+                Each one has a little surprise waiting for you. ❤️
+            </p>
+
+
+            <!-- SURPRISE 1 -->
+
+            <div class="surprise-card">
+
+                <div class="box-emoji">
+                    🎁
+                </div>
+
+                <h2>
+                    Surprise #1
+                </h2>
+
+                <p>
+                    A little something from the heart 💕
+                </p>
+
+                <button onclick="openSurprise(1)">
+                    ✨ Open Surprise
+                </button>
+
+                <div id="surprise1"
+                     class="surprise-reveal">
+
+                    <h3>
+                        🌷 A Beautiful Reminder
+                    </h3>
+
+                    <p>
+                        Never forget how special,
+                        loved and precious you are. ❤️
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- SURPRISE 2 -->
+
+            <div class="surprise-card">
+
+                <div class="box-emoji">
+                    🎁
+                </div>
+
+                <h2>
+                    Surprise #2
+                </h2>
+
+                <p>
+                    A tiny memory just for you ✨
+                </p>
+
+                <button onclick="openSurprise(2)">
+                    ✨ Open Surprise
+                </button>
+
+                <div id="surprise2"
+                     class="surprise-reveal">
+
+                    <h3>
+                        📸 Memory Unlocked
+                    </h3>
+
+                    <p>
+                        Some moments become memories,
+                        and some memories become forever. 💖
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- SURPRISE 3 -->
+
+            <div class="surprise-card">
+
+                <div class="box-emoji">
+                    🎁
+                </div>
+
+                <h2>
+                    Surprise #3
+                </h2>
+
+                <p>
+                    The biggest little surprise 🎀
+                </p>
+
+                <button onclick="openSurprise(3)">
+                    ✨ Open Surprise
+                </button>
+
+                <div id="surprise3"
+                     class="surprise-reveal">
+
+                    <h3>
+                        ❤️ One Last Thing...
+                    </h3>
+
+                    <p>
+                        Your birthday surprise isn't over yet.
+                        Something magical is waiting next... ✨
+                    </p>
+
+                    <button
+                        onclick="goToCountdown()">
+                        🎂 Continue To Birthday
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <script>
+
+        function openSurprise(number) {
+
+            const surprise =
+                document.getElementById(
+                    "surprise" + number
+                );
+
+            surprise.style.display = "block";
+
+        }
+
+
+        function goToCountdown() {
+
+            window.location.href =
+                "countdown.html";
+
+        }
+
+    </script>
+
+</body>
+
+</html>
