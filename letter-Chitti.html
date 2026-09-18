@@ -1,0 +1,1176 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Letter From Chitti 💌</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+
+        /* =====================================
+           LETTER CHITTI - THREE PART DESIGN
+        ===================================== */
+
+        .letter2-final {
+
+            position: absolute;
+
+            top: 0;
+            left: 50%;
+
+            width: 1400px;
+            max-width: 95vw;
+
+            height: 760px;
+
+            padding: 20px;
+
+            box-sizing: border-box;
+
+            background: #fff8e7;
+
+            border: 1px solid #e5d3b3;
+
+            box-shadow:
+                0 15px 40px rgba(0,0,0,.25);
+
+            opacity: 0;
+
+            transform:
+                translateX(-50%)
+                scale(.85);
+
+            pointer-events: none;
+
+            transition:
+                opacity 1.2s ease,
+                transform 1.2s ease;
+
+            overflow-y: auto;
+
+            z-index: 20;
+        }
+
+
+        .letter2-final.show {
+
+            opacity: 1;
+
+            transform:
+                translateX(-50%)
+                scale(1);
+
+            pointer-events: auto;
+
+        }
+
+
+        /* =====================================
+           THREE PART SCREEN
+        ===================================== */
+
+        .letter2-grid {
+
+            display: grid;
+
+            grid-template-columns:
+                23% 54% 23%;
+
+            gap: 15px;
+
+            width: 100%;
+
+            min-height: 700px;
+
+        }
+
+
+        /* =====================================
+           LEFT - FRIEND
+        ===================================== */
+
+        .letter2-friend {
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #fff0f5,
+                    #ffe1ea
+                );
+
+            border:
+                2px solid #d98ba2;
+
+            border-radius: 22px;
+
+            padding: 18px;
+
+            box-sizing: border-box;
+
+            text-align: center;
+
+            box-shadow:
+                0 10px 25px rgba(0,0,0,.15);
+
+        }
+
+
+        .letter2-friend h2 {
+
+            color: #6b304c;
+
+            font-family: Georgia, serif;
+
+            font-size: 28px;
+
+            margin:
+                5px 0 15px;
+
+        }
+
+
+        .letter2-friend img {
+
+            width: 100%;
+
+            height: 360px;
+
+            object-fit: contain;
+
+            object-position: center;
+
+            background: white;
+
+            border-radius: 18px;
+
+            border: 5px solid white;
+
+            box-shadow:
+                0 8px 20px rgba(0,0,0,.20);
+
+        }
+
+
+        .letter2-friend p {
+
+            font-family:
+                "Segoe Print",
+                "Comic Sans MS",
+                cursive;
+
+            color: #70465a;
+
+            font-size: 15px;
+
+            line-height: 1.6;
+
+            margin-top: 18px;
+
+        }
+
+
+        /* =====================================
+           MIDDLE - LETTER
+        ===================================== */
+
+        .letter2-middle {
+
+            background: #fffdf5;
+
+            border:
+                1px solid #ead8bb;
+
+            border-radius: 18px;
+
+            padding:
+                30px 35px;
+
+            box-sizing: border-box;
+
+            text-align: left;
+
+        }
+
+
+        .letter2-middle .top-heart {
+
+            text-align: center;
+
+            font-size: 42px;
+
+            margin-bottom: 5px;
+
+        }
+
+
+        .letter2-middle .letter-date {
+
+            text-align: center;
+
+            font-family: Georgia, serif;
+
+            font-size: 17px;
+
+            font-style: italic;
+
+            color: #7b4a4a;
+
+            margin-bottom: 20px;
+
+        }
+
+
+        .letter2-middle h1 {
+
+            font-family: Georgia, serif;
+
+            font-size: 31px;
+
+            color: #4a2c2a;
+
+            margin-bottom: 20px;
+
+        }
+
+
+        .letter2-middle .letter-body p {
+
+            font-family:
+                "Segoe Print",
+                "Comic Sans MS",
+                cursive;
+
+            font-size: 15px;
+
+            line-height: 1.65;
+
+            color: #49352f;
+
+            margin-bottom: 13px;
+
+        }
+
+
+        /* =====================================
+           TOGETHER PHOTO - NO CROP
+        ===================================== */
+
+        .letter2-together {
+
+            text-align: center;
+
+            margin:
+                25px auto
+                20px;
+
+        }
+
+
+        .letter2-together img {
+
+            width: 85%;
+
+            max-width: 430px;
+
+            height: auto;
+
+            max-height: 320px;
+
+            object-fit: contain;
+
+            object-position: center;
+
+            display: block;
+
+            margin: 0 auto;
+
+            box-sizing: border-box;
+
+            background: white;
+
+            border:
+                7px solid white;
+
+            border-radius: 8px;
+
+            box-shadow:
+                0 8px 20px rgba(0,0,0,.22);
+
+            transform:
+                rotate(-2deg);
+
+        }
+
+
+        .letter2-together p {
+
+            font-family:
+                "Segoe Print",
+                "Comic Sans MS",
+                cursive;
+
+            font-size: 16px;
+
+            color: #7b4a4a;
+
+            text-align: center;
+
+            margin-top: 12px;
+
+        }
+
+
+        /* =====================================
+           SIGNATURE
+        ===================================== */
+
+        .letter2-signature {
+
+            margin-top: 20px;
+
+            font-family:
+                "Segoe Print",
+                "Comic Sans MS",
+                cursive;
+
+            color: #5a3030;
+
+        }
+
+
+        .letter2-signature h2 {
+
+            font-size: 23px;
+
+            margin-top: 5px;
+
+        }
+
+
+        /* =====================================
+           RIGHT - ANU
+        ===================================== */
+
+        .letter2-anu {
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #fff0f5,
+                    #ffe1ea
+                );
+
+            border:
+                2px solid #d98ba2;
+
+            border-radius: 22px;
+
+            padding: 18px;
+
+            box-sizing: border-box;
+
+            text-align: center;
+
+            box-shadow:
+                0 10px 25px rgba(0,0,0,.15);
+
+        }
+
+
+        .letter2-anu h2 {
+
+            color: #6b304c;
+
+            font-family: Georgia, serif;
+
+            font-size: 28px;
+
+            margin:
+                5px 0 15px;
+
+        }
+
+
+        .letter2-anu img {
+
+            width: 100%;
+
+            height: 360px;
+
+            object-fit: contain;
+
+            object-position: center;
+
+            background: white;
+
+            border-radius: 18px;
+
+            border: 5px solid white;
+
+            box-shadow:
+                0 8px 20px rgba(0,0,0,.20);
+
+        }
+
+
+        .letter2-anu p {
+
+            font-family:
+                "Segoe Print",
+                "Comic Sans MS",
+                cursive;
+
+            color: #70465a;
+
+            font-size: 15px;
+
+            line-height: 1.6;
+
+            margin-top: 18px;
+
+        }
+
+
+        /* =====================================
+           BACK BUTTON
+        ===================================== */
+
+        .letter2-back {
+
+            display: block;
+
+            margin:
+                25px auto 5px;
+
+            background: #c96f7b;
+
+            color: white;
+
+            border: none;
+
+            padding:
+                13px 30px;
+
+            border-radius: 30px;
+
+            font-size: 16px;
+
+            cursor: pointer;
+
+            transition: .3s ease;
+
+        }
+
+
+        .letter2-back:hover {
+
+            transform: scale(1.05);
+
+        }
+
+
+        /* =====================================
+           FOLDING LETTER SIZE
+        ===================================== */
+
+        .folded-letter.letter-opened {
+
+            width: 1400px;
+
+            max-width: 95vw;
+
+            height: 760px;
+
+        }
+
+
+        /* =====================================
+           MOBILE
+        ===================================== */
+
+        @media (max-width: 1000px) {
+
+            .letter2-final {
+
+                width: 95vw;
+
+                height: auto;
+
+                max-height: 90vh;
+
+            }
+
+
+            .letter2-grid {
+
+                grid-template-columns: 1fr;
+
+            }
+
+
+            .letter2-friend img,
+            .letter2-anu img {
+
+                height: 450px;
+
+            }
+
+        }
+
+
+        @media (max-width: 600px) {
+
+            .letter2-middle {
+
+                padding:
+                    25px 20px;
+
+            }
+
+
+            .letter2-middle h1 {
+
+                font-size: 25px;
+
+            }
+
+
+            .letter2-middle .letter-body p {
+
+                font-size: 14px;
+
+            }
+
+
+            .letter2-friend img,
+            .letter2-anu img {
+
+                height: 350px;
+
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<section class="fold-letter-section">
+
+
+    <div class="fold-letter-container">
+
+
+        <p class="fold-hint">
+
+            🌸 A little letter about our friendship...
+
+        </p>
+
+
+        <!-- =================================
+             FOLDING LETTER
+        ================================= -->
+
+        <div class="folded-letter"
+             id="foldedLetter">
+
+
+            <!-- BACK PAPER -->
+
+            <div class="paper back-paper"></div>
+
+
+            <!-- FOLD 1 -->
+
+            <div class="paper fold fold-one"
+                 id="foldOne">
+
+                <div class="fold-text">
+
+                    🌸
+
+                </div>
+
+            </div>
+
+
+            <!-- FOLD 2 -->
+
+            <div class="paper fold fold-two"
+                 id="foldTwo">
+
+                <div class="fold-text">
+
+                    For Anu ❤️
+
+                </div>
+
+            </div>
+
+
+            <!-- FOLD 3 -->
+
+            <div class="paper fold fold-three"
+                 id="foldThree">
+
+                <div class="fold-text">
+
+                    ✨
+
+                </div>
+
+            </div>
+
+
+            <!-- FOLD 4 -->
+
+            <div class="paper fold fold-four"
+                 id="foldFour">
+
+                <div class="fold-text">
+
+                    💌
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================
+                 FINAL SCREEN
+            ================================= -->
+
+            <div class="letter2-final"
+                 id="finalLetter">
+
+
+                <div class="letter2-grid">
+
+
+                    <!-- =========================
+                         LEFT FRIEND PHOTO
+                    ========================== -->
+
+                    <div class="letter2-friend">
+
+
+                        <h2>
+
+                            💕 Friend
+
+                        </h2>
+
+
+                        <img
+                            src="images/ramya-friend.jpeg"
+                            alt="Ramya Friend Photo"
+                        >
+
+
+                        <p>
+
+                            Oka friend ante just friend
+                            matrame kaadu... ❤️
+
+                        </p>
+
+
+                        <p>
+
+                            Konni sarlu teacher laga,
+                            konni sarlu guide laga,
+                            oka chinna pillala chusukune
+                            oka special person. 💕
+
+                        </p>
+
+
+                        <p>
+
+                            Same Madness •
+                            Same Memories •
+                            Forever Us ❤️
+
+                        </p>
+
+
+                    </div>
+
+
+                    <!-- =========================
+                         MIDDLE LETTER
+                    ========================== -->
+
+                    <div class="letter2-middle">
+
+
+                        <div class="top-heart">
+
+                            💌
+
+                        </div>
+
+
+                        <p class="letter-date">
+
+                            Oka chinna letter mana
+                            friendship kosam... ❤️
+
+                        </p>
+
+
+                        <h1>
+
+                            Priyamaina Anu,
+
+                        </h1>
+
+
+                        <div class="letter-body">
+
+
+                            <p>
+
+                                Konni snehala pedda sanghatanatho
+                                modalu kavu... chinna chinna
+                                parichayalu, chinna chinna moments
+                                teliyakundane oka andamaina
+                                snehanga maripothayi. 💕
+
+                            </p>
+
+
+                            <p>
+
+                                Mana <strong>
+                                modati parichayam
+                                2023 lo, Saturday, 16th na
+                                </strong>
+                                jarigindi.
+
+                                Aa roju nuvvu vesukunna
+                                <strong>pink color frock</strong>
+                                naaku ippatiki gurthundi. 🌸
+
+                            </p>
+
+
+                            <p>
+
+                                Aa chinna parichayam mana madhya
+                                intha andamaina snehanki modati
+                                adugu avutundani appudu naaku teliyadu.
+
+                            </p>
+
+
+                            <p>
+
+                                Tarvatha mana
+                                <strong>
+                                rendavasari kalisindi
+                                nee birthday roju
+                                </strong>.
+
+                                🎂❤️
+
+                            </p>
+
+
+                            <p>
+
+                                Aa tarvatha <strong>THUB lo</strong>
+                                na daggara laptop lenappudu,
+                                nuvvu nee laptop ichi naaku
+                                help chesavu. 💕
+
+                            </p>
+
+
+                            <p>
+
+                                Rojulu gadiche koddi nuvvu naaku
+                                oka <strong>teacher laga</strong>
+                                maaripoyavu.
+
+                                Naaku teliyani vishayalu nerpistoo,
+                                ela cheyalo cheptoo,
+                                eppudu naaku help chestoo untavu. 🥹
+
+                            </p>
+
+
+                            <p>
+
+                                Ade samayamlo nannu
+                                <strong>
+                                oka chinna pillala
+                                chusukuntavu
+                                </strong>. 🥺❤️
+
+                                Konni sarlu nuvvu naaku
+                                teacher laga anipistavu,
+                                konni sarlu naaku
+                                chaala care chese friend laga
+                                anipistavu.
+
+                            </p>
+
+
+                            <p>
+
+                                Inka nee
+                                <strong>
+                                smile ki nenu pedda fan ni
+                                </strong>.
+
+                                Nuvvu navvutunte chaala
+                                baaguntundi. ❤️
+
+                            </p>
+
+
+                            <p>
+
+                                Alage nee
+                                <strong>
+                                walking style ki kuda
+                                nenu pedda fan ni
+                                </strong>. 😂💕
+
+                            </p>
+
+
+                            <p>
+
+                                Nuvvu chese panulu kuda
+                                chaala special ga untayi.
+
+                                Abbailu chese panulu ani
+                                anukune panulu kuda nuvvu
+                                chaala dhairyanga chesestavu. ✨
+
+                            </p>
+
+
+                            <p>
+
+                                Adi chusi naaku eppudu
+                                nuvvante oka special
+                                admiration. ❤️
+
+                            </p>
+
+
+                            <p>
+
+                                Nuvvu nijanga
+                                <strong>
+                                chaala manchi ammayivi,
+                                Anu
+                                </strong>. 🌷
+
+                            </p>
+
+
+                            <p>
+
+                                <strong>
+                                    Eppatiki manam kalisi
+                                    3 years 9 days avvutundi.
+                                </strong>
+
+                                🥹❤️
+
+                            </p>
+
+
+                            <p>
+
+                                Ee journey lo nitho kalisi
+                                <strong>
+                                    Project Space lo chaala
+                                    manchi time spend chesam
+                                </strong>.
+
+                                Aa rojullo jarigina chinna
+                                chinna moments, navvulu,
+                                conversations anni naaku
+                                chaala special memories. 💕
+
+                            </p>
+
+
+                            <!-- =====================
+                                 TOGETHER PHOTO
+                                 RAMYA + ANU
+                                 NO CROP
+                            ====================== -->
+
+                            <div class="letter2-together">
+
+
+                                <img
+                                    src="images/ramya-anu.jpeg"
+                                    alt="Ramya and Anu Together"
+                                >
+
+
+                                <p>
+
+                                    Manam iddaram ❤️
+
+                                </p>
+
+
+                            </div>
+
+
+                            <p>
+
+                                2023 lo aa modati parichayam
+                                nunchi ee roju varaku,
+                                manam kalisi create
+                                chesukunna prati memory ki
+                                nenu chaala value isthanu. ❤️
+
+                            </p>
+
+
+                            <p>
+
+                                Mana friendship ilage
+                                eppatiki andanga undalani
+                                korukuntunnanu.
+
+                                Inka enno navvulu,
+                                enno memories,
+                                enno andamaina rojulu
+                                mana kosam eduruchustoo
+                                undali. 🥹💕
+
+                            </p>
+
+
+                        </div>
+
+
+                        <!-- SIGNATURE -->
+
+                        <div class="letter2-signature">
+
+
+                            <p>
+
+                                Eppudu ilage happy ga undu,
+
+                            </p>
+
+
+                            <h2>
+
+                                Nee Friend,<br>
+                                Ramya ❤️
+
+                            </h2>
+
+
+                        </div>
+
+
+                        <!-- BACK -->
+
+                        <button
+                            class="letter2-back"
+                            onclick="window.location.href='letter.html'">
+
+                            💌 Back To Letters
+
+                        </button>
+
+
+                    </div>
+
+
+                    <!-- =========================
+                         RIGHT ANU PHOTO
+                    ========================== -->
+
+                    <div class="letter2-anu">
+
+
+                        <h2>
+
+                            🌸 Anu
+
+                        </h2>
+
+
+                        <img
+                            src="images/anu-2.jpeg"
+                            alt="Anu Photo"
+                        >
+
+
+                        <p>
+
+                            Nee smile ki nenu pedda
+                            fan ni. ❤️
+
+                        </p>
+
+
+                        <p>
+
+                            Nee walking style,
+                            nee kindness,
+                            nee caring nature...
+                            ivanni ninnu special
+                            ga chestayi. ✨
+
+                        </p>
+
+
+                        <p>
+
+                            Eppudu ilage smile
+                            chestoo undu. 🌷❤️
+
+                        </p>
+
+
+                    </div>
+
+
+                </div>
+
+
+            </div>
+
+
+        </div>
+
+
+        <p class="click-message"
+           id="clickMessage">
+
+            Click the letter to open it ✨
+
+        </p>
+
+
+    </div>
+
+</section>
+
+
+<script>
+
+let step = 0;
+
+
+const foldOne =
+    document.getElementById("foldOne");
+
+const foldTwo =
+    document.getElementById("foldTwo");
+
+const foldThree =
+    document.getElementById("foldThree");
+
+const foldFour =
+    document.getElementById("foldFour");
+
+const finalLetter =
+    document.getElementById("finalLetter");
+
+const foldedLetter =
+    document.getElementById("foldedLetter");
+
+const clickMessage =
+    document.getElementById("clickMessage");
+
+
+foldedLetter.addEventListener(
+    "click",
+    function () {
+
+
+        step++;
+
+
+        if (step === 1) {
+
+            foldOne.classList.add("open");
+
+            clickMessage.innerHTML =
+                "One fold opened... click again ❤️";
+
+        }
+
+
+        else if (step === 2) {
+
+            foldTwo.classList.add("open");
+
+            clickMessage.innerHTML =
+                "Another little fold... ✨";
+
+        }
+
+
+        else if (step === 3) {
+
+            foldThree.classList.add("open");
+
+            clickMessage.innerHTML =
+                "Almost there... 💕";
+
+        }
+
+
+        else if (step === 4) {
+
+            foldFour.classList.add("open");
+
+            clickMessage.innerHTML =
+                "Your letter is opening... 💌";
+
+        }
+
+
+        else if (step === 5) {
+
+            foldedLetter.classList.add(
+                "letter-opened"
+            );
+
+            finalLetter.classList.add("show");
+
+            clickMessage.innerHTML =
+                "Our beautiful friendship story ❤️";
+
+        }
+
+    }
+
+);
+
+</script>
+
+
+</body>
+
+</html>

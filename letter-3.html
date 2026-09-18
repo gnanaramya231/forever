@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Letter 3 💕</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<section class="fold-letter-section">
+
+    <div class="fold-letter-container">
+
+        <p class="fold-hint">
+            💕 A little memory turned into a letter...
+        </p>
+
+        <div class="folded-letter" id="foldedLetter">
+
+            <div class="paper back-paper"></div>
+
+            <div class="paper fold fold-one" id="foldOne">
+                <div class="fold-text">💕</div>
+            </div>
+
+            <div class="paper fold fold-two" id="foldTwo">
+                <div class="fold-text">A Memory ❤️</div>
+            </div>
+
+            <div class="paper fold fold-three" id="foldThree">
+                <div class="fold-text">✨</div>
+            </div>
+
+            <div class="paper fold fold-four" id="foldFour">
+                <div class="fold-text">💌</div>
+            </div>
+
+
+            <div class="final-letter-content" id="finalLetter">
+
+                <div class="letter-decoration">
+                    💕
+                </div>
+
+                <p class="letter-date">
+                    A little memory in words... ✨
+                </p>
+
+                <h1>
+                    Dear Anu,
+                </h1>
+
+                <div class="letter-body">
+
+                    <p>
+                        Some memories may look small when we first
+                        experience them, but later they become the
+                        moments we remember with the biggest smiles. ❤️
+                    </p>
+
+                    <p>
+                        The laughter, the random conversations,
+                        the silly moments and all those little things
+                        make our memories truly special. 💕
+                    </p>
+
+                    <p>
+                        Whenever you look back at these moments,
+                        I hope they remind you of how many beautiful
+                        memories you have created along the way. ✨
+                    </p>
+
+                    <p>
+                        May there always be more laughter, more adventures,
+                        more pictures and many more unforgettable memories
+                        waiting for you. 🌷
+                    </p>
+
+                </div>
+
+                <div class="letter-signature">
+
+                    <p>
+                        Keep these memories close to your heart,
+                    </p>
+
+                    <h2>
+                        — With Love ❤️
+                    </h2>
+
+                </div>
+
+                <button onclick="window.location.href='letter.html'">
+                    💌 Back To Letters
+                </button>
+
+            </div>
+
+        </div>
+
+        <p class="click-message" id="clickMessage">
+            Click the letter to open it ✨
+        </p>
+
+    </div>
+
+</section>
+
+
+<script>
+
+let step = 0;
+
+const foldOne = document.getElementById("foldOne");
+const foldTwo = document.getElementById("foldTwo");
+const foldThree = document.getElementById("foldThree");
+const foldFour = document.getElementById("foldFour");
+
+const finalLetter = document.getElementById("finalLetter");
+
+const clickMessage = document.getElementById("clickMessage");
+
+
+document.getElementById("foldedLetter").addEventListener("click", function () {
+
+    step++;
+
+    if (step === 1) {
+
+        foldOne.classList.add("open");
+
+        clickMessage.innerHTML =
+            "One fold opened... click again ❤️";
+
+    }
+
+    else if (step === 2) {
+
+        foldTwo.classList.add("open");
+
+        clickMessage.innerHTML =
+            "Another little fold... ✨";
+
+    }
+
+    else if (step === 3) {
+
+        foldThree.classList.add("open");
+
+        clickMessage.innerHTML =
+            "Almost there... 💕";
+
+    }
+
+    else if (step === 4) {
+
+        foldFour.classList.add("open");
+
+        clickMessage.innerHTML =
+            "Your letter is opening... 💌";
+
+    }
+
+    else if (step === 5) {
+
+        finalLetter.classList.add("show");
+
+        clickMessage.innerHTML =
+            "A beautiful memory, just for you ❤️";
+
+    }
+
+});
+
+</script>
+
+</body>
+
+</html>

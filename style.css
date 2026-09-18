@@ -2181,3 +2181,750 @@ button:hover {
     background: #fff0f5;
     border-radius: 18px;
 }
+
+/* =========================================
+   FOLDING LETTER - RAMYA TO ANU
+   ========================================= */
+
+html,
+body {
+    min-height: 100%;
+}
+
+body:has(.fold-letter-section) {
+    background:
+        linear-gradient(
+            rgba(70, 45, 35, 0.25),
+            rgba(70, 45, 35, 0.25)
+        ),
+        url("images/letter.jpeg");
+
+    background-size: cover;
+    background-position: center top;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+.fold-letter-section {
+    min-height: 100vh;
+    width: 100%;
+    padding: 50px 20px 80px;
+    box-sizing: border-box;
+
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+
+    text-align: center;
+
+    /* Keep the background on the whole page through body */
+    background: transparent;
+}
+
+.fold-letter-container {
+    width: 100%;
+    max-width: 850px;
+}
+
+.fold-hint {
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 25px;
+    text-shadow: 0 2px 5px rgba(0,0,0,.4);
+}
+
+
+/* Main letter area */
+
+.folded-letter {
+    position: relative;
+    width: 100%;
+    max-width: 700px;
+    height: 430px;
+    margin: auto;
+
+    perspective: 1500px;
+}
+
+
+/* All paper pieces */
+
+.paper {
+    position: absolute;
+
+    width: 100%;
+    height: 100%;
+
+    background: #FFF8E7;
+
+    border: 1px solid #E5D3B3;
+
+    box-shadow:
+        0 15px 35px rgba(0,0,0,.25);
+
+    transform-origin: top center;
+
+    transition:
+        transform 1.2s ease,
+        opacity .5s ease;
+}
+
+
+/* Back paper */
+
+.back-paper {
+    z-index: 1;
+
+    background:
+        linear-gradient(
+            135deg,
+            #fffdf5,
+            #f7ead2
+        );
+}
+
+
+/* Fold layers */
+
+.fold {
+    z-index: 2;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    cursor: pointer;
+
+    transform-origin: top center;
+
+    backface-visibility: hidden;
+}
+
+
+/* Fold colours */
+
+.fold-one {
+    z-index: 5;
+
+    background:
+        linear-gradient(
+            135deg,
+            #fff8e7,
+            #f5dfc0
+        );
+}
+
+.fold-two {
+    z-index: 4;
+
+    background:
+        linear-gradient(
+            135deg,
+            #fff9ec,
+            #f3dfc6
+        );
+}
+
+.fold-three {
+    z-index: 3;
+
+    background:
+        linear-gradient(
+            135deg,
+            #fffaf0,
+            #f5e4cd
+        );
+}
+
+.fold-four {
+    z-index: 2;
+
+    background:
+        linear-gradient(
+            135deg,
+            #fffdf5,
+            #f8e9d5
+        );
+}
+
+
+/* Fold symbols */
+
+.fold-text {
+    font-size: 55px;
+    color: #8B4A5A;
+}
+
+
+/* Fold animations */
+
+.fold-one.open {
+    transform: rotateX(-180deg);
+}
+
+.fold-two.open {
+    transform: rotateX(-180deg);
+}
+
+.fold-three.open {
+    transform: rotateX(-180deg);
+}
+
+.fold-four.open {
+    transform: rotateX(-180deg);
+}
+
+
+/* Final letter */
+
+.final-letter-content {
+    position: absolute;
+
+    z-index: 10;
+
+    width: 100%;
+    min-height: 100%;
+
+    box-sizing: border-box;
+
+    padding: 45px 60px;
+
+    background: #FFF8E7;
+
+    border: 1px solid #E5D3B3;
+
+    box-shadow:
+        0 15px 35px rgba(0,0,0,.25);
+
+    text-align: left;
+
+    opacity: 0;
+
+    transform: scale(.85);
+
+    pointer-events: none;
+
+    transition:
+        opacity 1.2s ease,
+        transform 1.2s ease;
+}
+
+
+/* Show final letter */
+
+.final-letter-content.show {
+    opacity: 1;
+
+    transform: scale(1);
+
+    pointer-events: auto;
+}
+
+
+/* Letter decoration */
+
+.final-letter-content .letter-decoration {
+    text-align: center;
+
+    font-size: 42px;
+
+    margin-bottom: 15px;
+}
+
+
+/* Date */
+
+.final-letter-content .letter-date {
+    text-align: center;
+
+    font-family: Georgia, serif;
+
+    font-size: 18px;
+
+    font-style: italic;
+
+    color: #7B4A4A;
+
+    margin-bottom: 30px;
+}
+
+
+/* Dear Anu */
+
+.final-letter-content h1 {
+    font-family: Georgia, serif;
+
+    font-size: 30px;
+
+    color: #4A2C2A;
+
+    margin-bottom: 25px;
+}
+
+
+/* Letter paragraphs */
+
+.final-letter-content .letter-body p {
+    font-family:
+        "Segoe Print",
+        "Comic Sans MS",
+        cursive;
+
+    font-size: 17px;
+
+    line-height: 1.8;
+
+    color: #49352F;
+
+    margin-bottom: 20px;
+}
+
+
+/* Signature */
+
+.final-letter-content .letter-signature {
+    margin-top: 30px;
+
+    font-family:
+        "Segoe Print",
+        "Comic Sans MS",
+        cursive;
+
+    color: #5A3030;
+}
+
+.final-letter-content .letter-signature p {
+    font-size: 16px;
+
+    margin-bottom: 5px;
+}
+
+.final-letter-content .letter-signature h2 {
+    font-size: 23px;
+
+    margin: 0;
+}
+
+
+/* Back button */
+
+.final-letter-content button {
+    display: block;
+
+    margin: 30px auto 0;
+
+    background: #C96F7B;
+
+    color: white;
+
+    border: none;
+
+    padding: 13px 28px;
+
+    border-radius: 30px;
+
+    font-size: 16px;
+
+    cursor: pointer;
+
+    transition: .3s ease;
+}
+
+.final-letter-content button:hover {
+    transform: scale(1.05);
+}
+
+
+/* Click instruction */
+
+.click-message {
+    margin-top: 25px;
+
+    color: white;
+
+    font-size: 18px;
+
+    font-weight: bold;
+
+    text-shadow:
+        0 2px 5px rgba(0,0,0,.5);
+}
+
+
+/* Mobile */
+
+@media (max-width: 600px) {
+
+    .folded-letter {
+        height: 380px;
+    }
+
+    .final-letter-content {
+        padding: 30px 25px;
+    }
+
+    .final-letter-content h1 {
+        font-size: 25px;
+    }
+
+    .final-letter-content .letter-body p {
+        font-size: 15px;
+    }
+
+    .fold-text {
+        font-size: 40px;
+    }
+
+    .fold-hint {
+        font-size: 17px;
+    }
+}
+
+/* =========================================
+   7 LETTERS - STAGGERED LAYOUT
+   ========================================= */
+
+.letters-page {
+    min-height: 100vh;
+    width: 100%;
+    padding: 60px 30px;
+    box-sizing: border-box;
+
+    background:
+        linear-gradient(
+            rgba(70, 45, 35, 0.30),
+            rgba(70, 45, 35, 0.30)
+        ),
+        url("images/letter.jpeg");
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+
+    text-align: center;
+}
+
+
+.letters-container {
+    width: 100%;
+    max-width: 1250px;
+    margin: auto;
+}
+
+
+.letters-container > h1 {
+    font-size: 42px;
+    color: white;
+
+    text-shadow:
+        2px 2px 8px rgba(0, 0, 0, 0.6);
+
+    margin-bottom: 12px;
+}
+
+
+.letters-intro {
+    font-size: 19px;
+    color: white;
+
+    text-shadow:
+        1px 2px 6px rgba(0, 0, 0, 0.6);
+
+    margin-bottom: 50px;
+}
+
+
+/* ROW */
+
+.letters-row {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 25px;
+}
+
+
+/* TOP 4 LETTERS */
+
+.top-row {
+    width: 100%;
+}
+
+
+/* BOTTOM 3 LETTERS */
+
+.bottom-row {
+    width: 75%;
+    margin: 55px auto 0;
+}
+
+
+/* LETTER CARD */
+
+.letter-envelope {
+    width: 240px;
+    min-height: 175px;
+
+    padding: 25px 18px;
+
+    box-sizing: border-box;
+
+    background:
+        linear-gradient(
+            135deg,
+            #fff8f5,
+            #ffe4ec
+        );
+
+    border: 2px solid #d98ba2;
+
+    border-radius: 22px;
+
+    box-shadow:
+        0 12px 30px rgba(0, 0, 0, 0.20);
+
+    cursor: pointer;
+
+    transition:
+        transform 0.35s ease,
+        box-shadow 0.35s ease;
+
+    position: relative;
+}
+
+
+/* Small envelope corner */
+
+.letter-envelope::after {
+    content: "♡";
+
+    position: absolute;
+
+    right: 14px;
+    top: 10px;
+
+    font-size: 20px;
+
+    color: #c96f7b;
+}
+
+
+/* Hover */
+
+.letter-envelope:hover {
+    transform:
+        translateY(-10px)
+        rotate(1deg)
+        scale(1.04);
+
+    box-shadow:
+        0 20px 40px rgba(0, 0, 0, 0.28);
+}
+
+
+/* Envelope icon */
+
+.envelope-icon {
+    font-size: 55px;
+
+    margin-bottom: 10px;
+
+    animation:
+        envelopeFloat 2.5s ease-in-out infinite;
+}
+
+
+/* Letter heading */
+
+.letter-envelope h2 {
+    font-size: 22px;
+
+    color: #6b304c;
+
+    margin-bottom: 8px;
+}
+
+
+/* Letter description */
+
+.letter-envelope p {
+    font-size: 14px;
+
+    line-height: 1.5;
+
+    color: #7a5265;
+
+    margin: 0;
+}
+
+
+/* Different rotations */
+
+.top-row .letter-envelope:nth-child(1) {
+    transform: rotate(-1deg);
+}
+
+.top-row .letter-envelope:nth-child(2) {
+    transform: rotate(1deg);
+}
+
+.top-row .letter-envelope:nth-child(3) {
+    transform: rotate(-1deg);
+}
+
+.top-row .letter-envelope:nth-child(4) {
+    transform: rotate(1deg);
+}
+
+.bottom-row .letter-envelope:nth-child(1) {
+    transform: rotate(1deg);
+}
+
+.bottom-row .letter-envelope:nth-child(2) {
+    transform: rotate(-1deg);
+}
+
+.bottom-row .letter-envelope:nth-child(3) {
+    transform: rotate(1deg);
+}
+
+
+/* Hover override */
+
+.letter-envelope:hover {
+    transform:
+        translateY(-10px)
+        rotate(0deg)
+        scale(1.04);
+}
+
+
+/* Floating animation */
+
+@keyframes envelopeFloat {
+
+    0%, 100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-6px);
+    }
+
+}
+
+
+/* Back button */
+
+.back-memory-button {
+    margin-top: 55px;
+
+    padding: 14px 30px;
+
+    border: none;
+
+    border-radius: 30px;
+
+    background: #8B0000;
+
+    color: white;
+
+    font-size: 17px;
+
+    cursor: pointer;
+
+    transition: 0.3s ease;
+}
+
+
+.back-memory-button:hover {
+    transform: scale(1.07);
+}
+
+
+/* =========================================
+   MOBILE
+   ========================================= */
+
+@media (max-width: 900px) {
+
+    .letters-row {
+        flex-wrap: wrap;
+    }
+
+    .bottom-row {
+        width: 100%;
+    }
+
+    .letter-envelope {
+        width: 220px;
+    }
+
+}
+
+
+@media (max-width: 600px) {
+
+    .letters-page {
+        padding: 40px 15px;
+    }
+
+    .letters-container > h1 {
+        font-size: 30px;
+    }
+
+    .letters-intro {
+        font-size: 16px;
+        margin-bottom: 35px;
+    }
+
+    .letters-row {
+        display: grid;
+
+        grid-template-columns:
+            repeat(2, 1fr);
+
+        gap: 18px;
+    }
+
+    .bottom-row {
+        width: 100%;
+        margin-top: 25px;
+    }
+
+    .letter-envelope {
+        width: 100%;
+        min-height: 150px;
+
+        padding: 20px 12px;
+    }
+
+    .envelope-icon {
+        font-size: 42px;
+    }
+
+    .letter-envelope h2 {
+        font-size: 18px;
+    }
+
+    .letter-envelope p {
+        font-size: 12px;
+    }
+
+}
+
+/* LETTER 2 - FINAL OPEN SCREEN */
+
+.folded-letter.letter-opened {
+    height: 760px;
+    max-width: 1400px;
+    width: 95vw;
+}
+
+.letter2-final.show {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateX(-50%) scale(1);
+}

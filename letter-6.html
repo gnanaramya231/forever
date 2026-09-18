@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Letter 6 🌷</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<section class="fold-letter-section">
+
+    <div class="fold-letter-container">
+
+        <p class="fold-hint">
+            🌷 A beautiful little note for you...
+        </p>
+
+        <div class="folded-letter" id="foldedLetter">
+
+            <div class="paper back-paper"></div>
+
+            <div class="paper fold fold-one" id="foldOne">
+                <div class="fold-text">🌷</div>
+            </div>
+
+            <div class="paper fold fold-two" id="foldTwo">
+                <div class="fold-text">For Anu ❤️</div>
+            </div>
+
+            <div class="paper fold fold-three" id="foldThree">
+                <div class="fold-text">✨</div>
+            </div>
+
+            <div class="paper fold fold-four" id="foldFour">
+                <div class="fold-text">💌</div>
+            </div>
+
+
+            <div class="final-letter-content" id="finalLetter">
+
+                <div class="letter-decoration">
+                    🌷
+                </div>
+
+                <p class="letter-date">
+                    A beautiful little note... ❤️
+                </p>
+
+                <h1>
+                    Dear Anu,
+                </h1>
+
+                <div class="letter-body">
+
+                    <p>
+                        Life becomes beautiful because of the little
+                        moments we share with the people who matter.
+                        And some of those moments become memories
+                        we never want to lose. ❤️
+                    </p>
+
+                    <p>
+                        I hope every new chapter of your life brings
+                        you closer to your dreams and fills your days
+                        with happiness and laughter. 💕
+                    </p>
+
+                    <p>
+                        Always remember to celebrate the little things,
+                        appreciate the people around you and enjoy
+                        every beautiful moment life gives you. ✨
+                    </p>
+
+                    <p>
+                        May your heart always have a reason to smile
+                        and your journey always be filled with wonderful
+                        memories. 🌷
+                    </p>
+
+                </div>
+
+                <div class="letter-signature">
+
+                    <p>
+                        Wishing you a beautiful journey ahead,
+                    </p>
+
+                    <h2>
+                        — With Warm Wishes 💖
+                    </h2>
+
+                </div>
+
+                <button onclick="window.location.href='letter.html'">
+                    💌 Back To Letters
+                </button>
+
+            </div>
+
+        </div>
+
+        <p class="click-message" id="clickMessage">
+            Click the letter to open it ✨
+        </p>
+
+    </div>
+
+</section>
+
+
+<script>
+
+let step = 0;
+
+const foldOne = document.getElementById("foldOne");
+const foldTwo = document.getElementById("foldTwo");
+const foldThree = document.getElementById("foldThree");
+const foldFour = document.getElementById("foldFour");
+
+const finalLetter = document.getElementById("finalLetter");
+
+const clickMessage = document.getElementById("clickMessage");
+
+
+document.getElementById("foldedLetter").addEventListener("click", function () {
+
+    step++;
+
+    if (step === 1) {
+
+        foldOne.classList.add("open");
+
+        clickMessage.innerHTML =
+            "One fold opened... click again ❤️";
+
+    }
+
+    else if (step === 2) {
+
+        foldTwo.classList.add("open");
+
+        clickMessage.innerHTML =
+            "Another little fold... ✨";
+
+    }
+
+    else if (step === 3) {
+
+        foldThree.classList.add("open");
+
+        clickMessage.innerHTML =
+            "Almost there... 💕";
+
+    }
+
+    else if (step === 4) {
+
+        foldFour.classList.add("open");
+
+        clickMessage.innerHTML =
+            "Your letter is opening... 💌";
+
+    }
+
+    else if (step === 5) {
+
+        finalLetter.classList.add("show");
+
+        clickMessage.innerHTML =
+            "A beautiful little note, just for you ❤️";
+
+    }
+
+});
+
+</script>
+
+</body>
+
+</html>
