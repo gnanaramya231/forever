@@ -2,85 +2,647 @@
 <html lang="en">
 
 <head>
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
 
     <title>Unforgettable Moments ✨</title>
 
     <link rel="stylesheet" href="style.css">
+
+    <style>
+
+        /* =====================================
+           UNFORGETTABLE MOMENTS
+        ===================================== */
+
+        .memories {
+
+            padding: 50px 5%;
+
+            text-align: center;
+
+        }
+
+
+        .memories h2 {
+
+            font-size: 38px;
+
+            margin-bottom: 10px;
+
+        }
+
+
+        .memory-intro {
+
+            font-size: 18px;
+
+            margin-bottom: 40px;
+
+        }
+
+
+        .media-title {
+
+            font-size: 28px;
+
+            margin:
+                35px 0 30px;
+
+        }
+
+
+        /* =====================================
+           VIDEO GALLERY
+        ===================================== */
+
+        .video-gallery {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 30px;
+
+            max-width: 1400px;
+
+            margin: 0 auto;
+
+        }
+
+
+        .video-card {
+
+            background:
+                rgba(255,255,255,.94);
+
+            padding: 14px;
+
+            border-radius: 20px;
+
+            box-shadow:
+                0 8px 25px rgba(0,0,0,.18);
+
+            transition:
+                transform .3s ease,
+                box-shadow .3s ease;
+
+        }
+
+
+        .video-card:hover {
+
+            transform:
+                translateY(-7px)
+                scale(1.02);
+
+            box-shadow:
+                0 15px 30px rgba(0,0,0,.25);
+
+        }
+
+
+        .video-card video {
+
+            width: 100%;
+
+            height: 300px;
+
+            object-fit: contain;
+
+            background: #111;
+
+            border-radius: 14px;
+
+            display: block;
+
+        }
+
+
+        .video-card p {
+
+            font-family:
+                "Segoe Print",
+                "Comic Sans MS",
+                cursive;
+
+            font-size: 15px;
+
+            color: #6b304c;
+
+            margin:
+                12px 5px 5px;
+
+        }
+
+
+        /* =====================================
+           CONTINUE TO LETTER
+        ===================================== */
+
+        .continue-letter-button {
+
+            display: inline-block;
+
+            margin-top: 50px;
+
+            padding:
+                15px 35px;
+
+            background: #c96f7b;
+
+            color: white;
+
+            text-decoration: none;
+
+            border-radius: 30px;
+
+            font-size: 17px;
+
+            font-weight: bold;
+
+            box-shadow:
+                0 8px 20px rgba(0,0,0,.20);
+
+            transition:
+                transform .3s ease;
+
+        }
+
+
+        .continue-letter-button:hover {
+
+            transform:
+                translateY(-3px)
+                scale(1.04);
+
+        }
+
+
+        /* =====================================
+           TABLET
+        ===================================== */
+
+        @media (max-width: 1000px) {
+
+            .video-gallery {
+
+                grid-template-columns:
+                    repeat(2, 1fr);
+
+            }
+
+        }
+
+
+        /* =====================================
+           MOBILE
+        ===================================== */
+
+        @media (max-width: 650px) {
+
+            .memories {
+
+                padding:
+                    35px 15px;
+
+            }
+
+
+            .memories h2 {
+
+                font-size: 28px;
+
+            }
+
+
+            .video-gallery {
+
+                grid-template-columns: 1fr;
+
+            }
+
+
+            .video-card video {
+
+                height: 280px;
+
+            }
+
+        }
+
+    </style>
+
 </head>
+
 
 <body>
 
-    <section class="memories">
 
-        <h2>✨ Unforgettable Moments ✨</h2>
-
-        <p class="memory-intro">
-            Some moments are too special to be forgotten... ❤️
-        </p>
+<section class="memories">
 
 
-        <!-- PHOTOS -->
+    <!-- =====================================
+         TITLE
+    ===================================== -->
 
-        <h3 class="media-title">
-            📸 Beautiful Memories
-        </h3>
+    <h2>
 
-        <div class="photo-gallery">
+        ✨ Unforgettable Moments ✨
 
-            <div class="photo-card">
-                <img src="images/unforgettable1.jpeg"
-                     alt="Unforgettable Memory 1">
+    </h2>
 
-                <p>A moment worth remembering forever. ❤️</p>
-            </div>
 
-            <div class="photo-card">
-                <img src="images/unforgettable2.jpeg"
-                     alt="Unforgettable Memory 2">
+    <p class="memory-intro">
 
-                <p>One beautiful memory that stays forever. ✨</p>
-            </div>
+        Some moments are too special to be forgotten... ❤️
 
-            <div class="photo-card">
-                <img src="images/unforgettable3.jpeg"
-                     alt="Unforgettable Memory 3">
+    </p>
 
-                <p>A memory that time can never erase. 💕</p>
-            </div>
 
-            <div class="photo-card">
-                <img src="images/unforgettable4.jpeg"
-                     alt="Unforgettable Memory 4">
 
-                <p>Some moments become forever memories. 🌷</p>
-            </div>
+    <!-- =====================================
+         VIDEOS ONLY
+    ===================================== -->
+
+    <h3 class="media-title">
+
+        🎥 Little Videos
+
+    </h3>
+
+
+    <div class="video-gallery">
+
+
+        <!-- VIDEO 1 -->
+
+        <div class="video-card">
+
+            <video controls>
+
+                <source
+                    src="videos/unforgettable1.mp4"
+                    type="video/mp4"
+                >
+
+                Your browser does not support
+                video playback.
+
+            </video>
+
+            <p>
+                A little moment captured forever. ❤️
+            </p>
 
         </div>
 
-        <!-- VIDEOS -->
 
-<h3 class="media-title">
-    🎥 Little Videos
-</h3>
+        <!-- VIDEO 2 -->
 
-<div class="video-gallery">
+        <div class="video-card">
 
-    <div class="video-card">
+            <video controls>
 
-        <video controls>
-            <source src="videos/unforgettable1.mp4" type="video/mp4">
-            Your browser does not support video playback.
-        </video>
+                <source
+                    src="videos/unforgettable2.mp4"
+                    type="video/mp4"
+                >
 
-        <p>
-            A little moment captured forever. ❤️
-        </p>
+                Your browser does not support
+                video playback.
+
+            </video>
+
+            <p>
+                Another beautiful moment. ✨
+            </p>
+
+        </div>
+
+
+        <!-- VIDEO 3 -->
+
+        <div class="video-card">
+
+            <video controls>
+
+                <source
+                    src="videos/unforgettable3.mp4"
+                    type="video/mp4"
+                >
+
+                Your browser does not support
+                video playback.
+
+            </video>
+
+            <p>
+                A memory in motion. 💕
+            </p>
+
+        </div>
+
+
+        <!-- VIDEO 4 -->
+
+        <div class="video-card">
+
+            <video controls>
+
+                <source
+                    src="videos/unforgettable4.mp4"
+                    type="video/mp4"
+                >
+
+                Your browser does not support
+                video playback.
+
+            </video>
+
+            <p>
+                A little piece of our story. ❤️
+            </p>
+
+        </div>
+
+
+        <!-- VIDEO 5 -->
+
+        <div class="video-card">
+
+            <video controls>
+
+                <source
+                    src="videos/unforgettable5.mp4"
+                    type="video/mp4"
+                >
+
+                Your browser does not support
+                video playback.
+
+            </video>
+
+            <p>
+                One more memory to treasure. 🌸
+            </p>
+
+        </div>
+
+
+        <!-- VIDEO 6 -->
+
+        <div class="video-card">
+
+            <video controls>
+
+                <source
+                    src="videos/unforgettable6.mp4"
+                    type="video/mp4"
+                >
+
+                Your browser does not support
+                video playback.
+
+            </video>
+
+            <p>
+                Moments that make us smile. 😊❤️
+            </p>
+
+        </div>
+
+
+        <!-- VIDEO 7 -->
+
+        <div class="video-card">
+
+            <video controls>
+
+                <source
+                    src="videos/unforgettable7.mp4"
+                    type="video/mp4"
+                >
+
+                Your browser does not support
+                video playback.
+
+            </video>
+
+            <p>
+                A beautiful memory captured. ✨
+            </p>
+
+        </div>
+
+
+        <!-- VIDEO 8 -->
+
+        <div class="video-card">
+
+            <video controls>
+
+                <source
+                    src="videos/unforgettable8.mp4"
+                    type="video/mp4"
+                >
+
+                Your browser does not support
+                video playback.
+
+            </video>
+
+            <p>
+                Another unforgettable moment. 💕
+            </p>
+
+        </div>
+
+
+        <!-- VIDEO 9 -->
+
+        <div class="video-card">
+
+            <video controls>
+
+                <source
+                    src="videos/unforgettable9.mp4"
+                    type="video/mp4"
+                >
+
+                Your browser does not support
+                video playback.
+
+            </video>
+
+            <p>
+                A memory worth replaying. ❤️
+            </p>
+
+        </div>
+
+
+        <!-- VIDEO 10 -->
+
+        <div class="video-card">
+
+            <video controls>
+
+                <source
+                    src="videos/unforgettable10.mp4"
+                    type="video/mp4"
+                >
+
+                Your browser does not support
+                video playback.
+
+            </video>
+
+            <p>
+                Little moments, big memories. 🌷
+            </p>
+
+        </div>
+
+
+        <!-- VIDEO 11 -->
+
+        <div class="video-card">
+
+            <video controls>
+
+                <source
+                    src="videos/unforgettable11.mp4"
+                    type="video/mp4"
+                >
+
+                Your browser does not support
+                video playback.
+
+            </video>
+
+            <p>
+                A beautiful chapter of our story. ✨
+            </p>
+
+        </div>
+
+
+        <!-- VIDEO 12 -->
+
+        <div class="video-card">
+
+            <video controls>
+
+                <source
+                    src="videos/unforgettable12.mp4"
+                    type="video/mp4"
+                >
+
+                Your browser does not support
+                video playback.
+
+            </video>
+
+            <p>
+                A moment frozen in time. ❤️
+            </p>
+
+        </div>
+
+
+        <!-- VIDEO 13 -->
+
+        <div class="video-card">
+
+            <video controls>
+
+                <source
+                    src="videos/unforgettable13.mp4"
+                    type="video/mp4"
+                >
+
+                Your browser does not support
+                video playback.
+
+            </video>
+
+            <p>
+                Another memory we made together. 💕
+            </p>
+
+        </div>
+
+
+        <!-- VIDEO 14 -->
+
+        <div class="video-card">
+
+            <video controls>
+
+                <source
+                    src="videos/unforgettable14.mp4"
+                    type="video/mp4"
+                >
+
+                Your browser does not support
+                video playback.
+
+            </video>
+
+            <p>
+                One more little memory. 🌸
+            </p>
+
+        </div>
+
+
+        <!-- VIDEO 15 -->
+
+        <div class="video-card">
+
+            <video controls>
+
+                <source
+                    src="videos/unforgettable15.mp4"
+                    type="video/mp4"
+                >
+
+                Your browser does not support
+                video playback.
+
+            </video>
+
+            <p>
+                Fifteen videos, countless memories. ❤️
+            </p>
+
+        </div>
+
 
     </div>
 
-</div>
+
+
+    <!-- =====================================
+         NEXT PAGE
+    ===================================== -->
+
+    <a
+        href="letter.html"
+        class="continue-letter-button">
+
+        💌 Continue To Your Letters
+
+    </a>
+
+
+</section>
+
 
 </body>
 

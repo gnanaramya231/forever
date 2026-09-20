@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Crazy Things 🤪❤️</title>
+
+    <link rel="stylesheet" href="style.css">
+
+
+    <style>
+
+        .crazy-section {
+
+            min-height: 100vh;
+
+            padding: 50px 20px;
+
+            text-align: center;
+
+        }
+
+
+        .crazy-title {
+
+            font-size: 38px;
+
+            margin-bottom: 10px;
+
+        }
+
+
+        .crazy-subtitle {
+
+            font-size: 18px;
+
+            margin-bottom: 40px;
+
+            opacity: 0.8;
+
+        }
+
+
+        .crazy-heading {
+
+            font-size: 28px;
+
+            margin: 35px 0 25px;
+
+        }
+
+
+        .crazy-gallery {
+
+            max-width: 1100px;
+
+            margin: auto;
+
+            display: grid;
+
+            grid-template-columns: repeat(3, 1fr);
+
+            gap: 22px;
+
+        }
+
+
+        .crazy-card {
+
+            overflow: hidden;
+
+            border-radius: 18px;
+
+            background: white;
+
+            box-shadow:
+                0 8px 25px rgba(0, 0, 0, 0.15);
+
+        }
+
+
+        .crazy-card img {
+
+            width: 100%;
+
+            height: 300px;
+
+            display: block;
+
+            object-fit: cover;
+
+            transition: transform 0.4s ease;
+
+        }
+
+
+        .crazy-card:hover img {
+
+            transform: scale(1.05);
+
+        }
+
+
+        .crazy-video {
+
+            width: 100%;
+
+            height: 300px;
+
+            display: block;
+
+            object-fit: cover;
+
+            border-radius: 18px;
+
+        }
+
+
+        .back-button {
+
+            display: inline-block;
+
+            margin-top: 45px;
+
+            padding: 13px 25px;
+
+            border-radius: 25px;
+
+            text-decoration: none;
+
+            font-weight: bold;
+
+            background: #ffffff;
+
+            color: #333;
+
+            box-shadow:
+                0 5px 15px rgba(0, 0, 0, 0.15);
+
+        }
+
+
+        @media (max-width: 768px) {
+
+            .crazy-gallery {
+
+                grid-template-columns: repeat(2, 1fr);
+
+            }
+
+
+            .crazy-card img,
+            .crazy-video {
+
+                height: 250px;
+
+            }
+
+        }
+
+
+        @media (max-width: 500px) {
+
+            .crazy-gallery {
+
+                grid-template-columns: 1fr;
+
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <section class="crazy-section">
+
+
+        <h1 class="crazy-title">
+            🤪 Crazy Things ❤️
+        </h1>
+
+
+        <p class="crazy-subtitle">
+            Because the craziest moments become the funniest memories... 😂✨
+        </p>
+
+
+
+        <!-- ========================= -->
+        <!-- PHOTOS -->
+        <!-- ========================= -->
+
+
+        <h2 class="crazy-heading">
+            📸 Crazy Memories
+        </h2>
+
+
+        <div class="crazy-gallery">
+
+
+            <div class="crazy-card">
+                <img src="images/crazy1.jpeg"
+                     alt="Crazy Memory 1">
+            </div>
+
+
+            <div class="crazy-card">
+                <img src="images/crazy2.jpeg"
+                     alt="Crazy Memory 2">
+            </div>
+
+
+            <div class="crazy-card">
+                <img src="images/crazy3.jpeg"
+                     alt="Crazy Memory 3">
+            </div>
+
+
+            <div class="crazy-card">
+                <img src="images/crazy4.jpeg"
+                     alt="Crazy Memory 4">
+            </div>
+
+
+            <div class="crazy-card">
+                <img src="images/crazy5.jpeg"
+                     alt="Crazy Memory 5">
+            </div>
+
+
+            <div class="crazy-card">
+                <img src="images/crazy6.jpeg"
+                     alt="Crazy Memory 6">
+            </div>
+
+
+            <div class="crazy-card">
+                <img src="images/crazy7.jpeg"
+                     alt="Crazy Memory 7">
+            </div>
+
+
+            <div class="crazy-card">
+                <img src="images/crazy8.jpeg"
+                     alt="Crazy Memory 8">
+            </div>
+
+
+            <div class="crazy-card">
+                <img src="images/crazy9.jpeg"
+                     alt="Crazy Memory 9">
+            </div>
+
+
+            <div class="crazy-card">
+                <img src="images/crazy10.jpeg"
+                     alt="Crazy Memory 10">
+            </div>
+
+            <div class="crazy-card">
+                <img src="images/crazy11.jpeg"
+                     alt="Crazy Memory 11">
+            </div>
+
+            <div class="crazy-card">
+                <img src="images/crazy12.jpeg"
+                     alt="Crazy Memory 12">
+            </div>
+
+
+        </div>
+
+
+
+        <!-- ========================= -->
+        <!-- VIDEOS -->
+        <!-- ========================= -->
+
+
+        <h2 class="crazy-heading">
+            🎬 Crazy Moments
+        </h2>
+
+
+        <div class="crazy-gallery">
+
+
+            <div class="crazy-card">
+
+                <video
+                    class="crazy-video"
+                    controls
+                    playsinline>
+
+                    <source
+                        src="videos/crazy1.mp4"
+                        type="video/mp4">
+
+                </video>
+
+            </div>
+
+
+            <div class="crazy-card">
+
+                <video
+                    class="crazy-video"
+                    controls
+                    playsinline>
+
+                    <source
+                        src="videos/crazy2.mp4"
+                        type="video/mp4">
+
+                </video>
+
+            </div>
+
+
+            <div class="crazy-card">
+
+                <video
+                    class="crazy-video"
+                    controls
+                    playsinline>
+
+                    <source
+                        src="videos/crazy3.mp4"
+                        type="video/mp4">
+
+                </video>
+
+            </div>
+
+
+            <div class="crazy-card">
+
+                <video
+                    class="crazy-video"
+                    controls
+                    playsinline>
+
+                    <source
+                        src="videos/crazy4.mp4"
+                        type="video/mp4">
+
+                </video>
+
+            </div>
+
+
+            <div class="crazy-card">
+
+                <video
+                    class="crazy-video"
+                    controls
+                    playsinline>
+
+                    <source
+                        src="videos/crazy5.mp4"
+                        type="video/mp4">
+
+                </video>
+
+            </div>
+
+            <div class="crazy-card">
+
+                <video
+                    class="crazy-video"
+                    controls
+                    playsinline>
+
+                    <source
+                        src="videos/crazy6.mp4"
+                        type="video/mp4">
+
+                </video>
+
+            </div>
+
+            <div class="crazy-card">
+
+                <video
+                    class="crazy-video"
+                    controls
+                    playsinline>
+
+                    <source
+                        src="videos/crazy7.mp4"
+                        type="video/mp4">
+
+                </video>
+
+            </div>
+
+            <div class="crazy-card">
+
+                <video
+                    class="crazy-video"
+                    controls
+                    playsinline>
+
+                    <source
+                        src="videos/crazy8.mp4"
+                        type="video/mp4">
+
+                </video>
+
+            </div>
+
+            <div class="crazy-card">
+
+                <video
+                    class="crazy-video"
+                    controls
+                    playsinline>
+
+                    <source
+                        src="videos/crazy9.mp4"
+                        type="video/mp4">
+
+                </video>
+
+            </div>
+
+            <div class="crazy-card">
+
+                <video
+                    class="crazy-video"
+                    controls
+                    playsinline>
+
+                    <source
+                        src="videos/crazy10.mp4"
+                        type="video/mp4">
+
+                </video>
+
+            </div>
+
+            <div class="crazy-card">
+
+                <video
+                    class="crazy-video"
+                    controls
+                    playsinline>
+
+                    <source
+                        src="videos/crazy11.mp4"
+                        type="video/mp4">
+
+                </video>
+
+            </div>
+
+            <div class="crazy-card">
+
+                <video
+                    class="crazy-video"
+                    controls
+                    playsinline>
+
+                    <source
+                        src="videos/crazy12.mp4"
+                        type="video/mp4">
+
+                </video>
+
+            </div>
+
+
+        </div>
+
+
+
+        <!-- ========================= -->
+        <!-- BACK BUTTON -->
+        <!-- ========================= -->
+
+
+        <a href="memories.html"
+           class="back-button">
+
+            ← Back to Memories
+
+        </a>
+
+
+    </section>
+
+
+</body>
+
+</html>

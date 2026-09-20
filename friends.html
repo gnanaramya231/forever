@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Anu's Friends ❤️</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <section class="memories">
+
+        <h2>👭 Anu's Friends</h2>
+
+        <p class="memory-intro">
+            Different places, different people, beautiful memories... ❤️
+        </p>
+
+
+        <!-- FRIEND CATEGORIES -->
+
+        <div class="friend-categories">
+
+            <!-- SCHOOL FRIENDS -->
+
+            <div class="friend-category"
+                 onclick="window.location.href='school-friends.html'">
+
+                <div class="friend-icon">
+                    🏫
+                </div>
+
+                <h3>School Friends</h3>
+
+                <p>
+                    Beautiful memories from school days
+                </p>
+
+            </div>
+
+
+            <!-- B.TECH FRIENDS -->
+
+            <div class="friend-category"
+                 onclick="window.location.href='btech-friends.html'">
+
+                <div class="friend-icon">
+                    🎓
+                </div>
+
+                <h3>B.Tech Friends</h3>
+
+                <p>
+                    College memories and crazy moments
+                </p>
+
+            </div>
+
+
+            <!-- BUS FRIENDS -->
+
+            <div class="friend-category"
+                 onclick="window.location.href='bus-friends.html'">
+
+                <div class="friend-icon">
+                    🚌
+                </div>
+
+                <h3>Bus Friends</h3>
+
+                <p>
+                    Fun journeys and unforgettable moments
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- BACK BUTTON -->
+
+        <div class="continue-letter-area">
+
+            <button onclick="window.location.href='memories.html'">
+                📸 Back To Memories
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <style>
+
+        /* FRIEND CATEGORIES */
+
+        .friend-categories {
+            display: flex;
+            justify-content: center;
+            align-items: stretch;
+            gap: 25px;
+            margin-top: 40px;
+            flex-wrap: nowrap;
+        }
+
+
+        .friend-category {
+            width: 260px;
+            min-height: 200px;
+
+            padding: 25px 20px;
+
+            background: rgba(255, 255, 255, 0.75);
+
+            border-radius: 20px;
+
+            text-align: center;
+
+            cursor: pointer;
+
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+
+            transition: transform 0.3s ease,
+                        box-shadow 0.3s ease;
+        }
+
+
+        .friend-category:hover {
+            transform: translateY(-8px);
+
+            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.18);
+        }
+
+
+        .friend-icon {
+            font-size: 45px;
+            margin-bottom: 15px;
+        }
+
+
+        .friend-category h3 {
+            margin: 10px 0;
+
+            font-size: 21px;
+        }
+
+
+        .friend-category p {
+            font-size: 14px;
+            line-height: 1.5;
+        }
+
+
+        /* MOBILE */
+
+        @media (max-width: 900px) {
+
+            .friend-categories {
+                flex-wrap: wrap;
+            }
+
+        }
+
+    </style>
+
+</body>
+
+</html>
