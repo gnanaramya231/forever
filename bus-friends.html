@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Bus Friends 🚌❤️</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "Poppins", sans-serif;
+            background: linear-gradient(135deg, #fff1f8, #ffe4ec, #fff8e7);
+            min-height: 100vh;
+            padding: 40px 20px;
+            color: #4b3038;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: auto;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 42px;
+            margin-bottom: 10px;
+            color: #c84b76;
+        }
+
+        .subtitle {
+            font-size: 18px;
+            margin-bottom: 40px;
+            color: #76505c;
+        }
+
+        .section-title {
+            font-size: 30px;
+            color: #b63e69;
+            margin: 35px 0 25px;
+        }
+
+        .bus-note {
+            max-width: 760px;
+            margin: 0 auto 8px;
+            color: #3f2930;
+            font-size: 16px;
+            line-height: 1.7;
+            font-weight: 500;
+        }
+
+        .bus-hint {
+            margin-bottom: 35px;
+            color: #4a2c35;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .bus-ending {
+            margin: 35px auto 0;
+            color: #3f2930;
+            font-size: 16px;
+            line-height: 1.7;
+            font-weight: 600;
+        }
+
+        /* =========================
+           PHOTO GRID
+        ========================= */
+
+        .photo-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 22px;
+        }
+
+        .photo-card {
+            background: white;
+            padding: 10px;
+            border-radius: 18px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+        }
+
+        .photo-card:hover {
+            transform: translateY(-7px) scale(1.02);
+            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.18);
+        }
+
+        .photo-card img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 14px;
+            display: block;
+        }
+
+        /* =========================
+           VIDEO GRID
+        ========================= */
+
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+            margin-top: 20px;
+        }
+
+        .video-card {
+            background: white;
+            padding: 10px;
+            border-radius: 18px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .video-card:hover {
+            transform: translateY(-7px) scale(1.02);
+            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.18);
+        }
+
+        .video-card video {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 14px;
+            display: block;
+            pointer-events: none;
+        }
+
+        /* =========================
+           POPUP / LIGHTBOX
+        ========================= */
+
+        .popup {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.88);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            padding: 30px;
+        }
+
+        .popup.active {
+            display: flex;
+        }
+
+        .popup-content {
+            max-width: 90vw;
+            max-height: 90vh;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .popup-content img {
+            max-width: 90vw;
+            max-height: 88vh;
+            width: auto;
+            height: auto;
+            object-fit: contain;
+            border-radius: 12px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+        }
+
+        .popup-content video {
+            max-width: 90vw;
+            max-height: 85vh;
+            width: auto;
+            height: auto;
+            border-radius: 12px;
+            background: black;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+        }
+
+        /* CLOSE BUTTON */
+
+        .close-btn {
+            position: fixed;
+            top: 20px;
+            right: 25px;
+            width: 48px;
+            height: 48px;
+            border: none;
+            border-radius: 50%;
+            background: white;
+            color: #c84b76;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+            z-index: 10000;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            transition: 0.3s ease;
+        }
+
+        .close-btn:hover {
+            transform: rotate(90deg) scale(1.1);
+            background: #ffe4ec;
+        }
+
+        /* CLICK HINT */
+
+        .click-hint {
+            font-size: 13px;
+            color: #9a6878;
+            margin-top: 8px;
+        }
+
+        /* =========================
+           BACK BUTTON
+        ========================= */
+
+        .back-btn {
+            display: inline-block;
+            margin-top: 50px;
+            padding: 14px 30px;
+            background: #c84b76;
+            color: white;
+            text-decoration: none;
+            border-radius: 30px;
+            font-size: 17px;
+            font-weight: 600;
+            transition: 0.3s ease;
+            box-shadow: 0 6px 15px rgba(200, 75, 118, 0.3);
+        }
+
+        .back-btn:hover {
+            background: #a9365d;
+            transform: translateY(-3px);
+        }
+
+        /* =========================
+           TABLET
+        ========================= */
+
+        @media (max-width: 900px) {
+
+            .photo-grid,
+            .video-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            h1 {
+                font-size: 36px;
+            }
+        }
+
+        /* =========================
+           MOBILE
+        ========================= */
+
+        @media (max-width: 600px) {
+
+            body {
+                padding: 25px 15px;
+            }
+
+            h1 {
+                font-size: 30px;
+            }
+
+            .subtitle {
+                font-size: 15px;
+            }
+
+            .section-title {
+                font-size: 25px;
+            }
+
+            .photo-grid,
+            .video-grid {
+                grid-template-columns: 1fr;
+                gap: 18px;
+            }
+
+            .photo-card img,
+            .video-card video {
+                height: 350px;
+            }
+
+            .popup {
+                padding: 15px;
+            }
+
+            .popup-content img {
+                max-width: 95vw;
+                max-height: 85vh;
+            }
+
+            .popup-content video {
+                max-width: 95vw;
+                max-height: 80vh;
+            }
+
+            .close-btn {
+                top: 12px;
+                right: 12px;
+                width: 42px;
+                height: 42px;
+                font-size: 24px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h1>🚌 Bus Friends ❤️</h1>
+
+        <p class="subtitle">
+            The journeys, laughs and memories we made together ✨
+        </p>
+
+        <p class="bus-note">
+            Sometimes the journey itself becomes the memory —
+            the people, the laughter and all the little moments in between. ❤️
+        </p>
+
+        <p class="bus-hint">
+            Explore the photos first... then relive the moments through video. 🚌🎥
+        </p>
+
+
+        <!-- ========================= -->
+        <!-- PHOTOS SECTION -->
+        <!-- ========================= -->
+
+        <h2 class="section-title">📸 Your Bus Memories</h2>
+
+        <div class="photo-grid">
+
+            <div class="photo-card" onclick="openPhoto('images/bus1.jpeg')">
+                <img src="images/bus1.jpeg" alt="Bus Memory 1">
+                <p class="click-hint">Click to view ❤️</p>
+            </div>
+
+            <div class="photo-card" onclick="openPhoto('images/bus2.jpeg')">
+                <img src="images/bus2.jpeg" alt="Bus Memory 2">
+                <p class="click-hint">Click to view ❤️</p>
+            </div>
+
+            <div class="photo-card" onclick="openPhoto('images/bus3.jpeg')">
+                <img src="images/bus3.jpeg" alt="Bus Memory 3">
+                <p class="click-hint">Click to view ❤️</p>
+            </div>
+
+            <div class="photo-card" onclick="openPhoto('images/bus4.jpeg')">
+                <img src="images/bus4.jpeg" alt="Bus Memory 4">
+                <p class="click-hint">Click to view ❤️</p>
+            </div>
+
+            <div class="photo-card" onclick="openPhoto('images/bus5.jpeg')">
+                <img src="images/bus5.jpeg" alt="Bus Memory 5">
+                <p class="click-hint">Click to view ❤️</p>
+            </div>
+
+            <div class="photo-card" onclick="openPhoto('images/bus6.jpeg')">
+                <img src="images/bus6.jpeg" alt="Bus Memory 6">
+                <p class="click-hint">Click to view ❤️</p>
+            </div>
+
+            <div class="photo-card" onclick="openPhoto('images/bus7.jpeg')">
+                <img src="images/bus7.jpeg" alt="Bus Memory 7">
+                <p class="click-hint">Click to view ❤️</p>
+            </div>
+
+            <div class="photo-card" onclick="openPhoto('images/bus8.jpeg')">
+                <img src="images/bus8.jpeg" alt="Bus Memory 8">
+                <p class="click-hint">Click to view ❤️</p>
+            </div>
+
+            <div class="photo-card" onclick="openPhoto('images/bus9.jpeg')">
+                <img src="images/bus9.jpeg" alt="Bus Memory 9">
+                <p class="click-hint">Click to view ❤️</p>
+            </div>
+
+            <div class="photo-card" onclick="openPhoto('images/bus10.jpeg')">
+                <img src="images/bus10.jpeg" alt="Bus Memory 10">
+                <p class="click-hint">Click to view ❤️</p>
+            </div>
+
+            <div class="photo-card" onclick="openPhoto('images/bus11.jpeg')">
+                <img src="images/bus11.jpeg" alt="Bus Memory 11">
+                <p class="click-hint">Click to view ❤️</p>
+            </div>
+
+
+        </div>
+
+
+        <!-- ========================= -->
+        <!-- VIDEOS SECTION -->
+        <!-- ========================= -->
+
+        <h2 class="section-title">🎥 Bus Moments</h2>
+
+        <div class="video-grid">
+
+            <div class="video-card" onclick="openVideo('videos/bus1.mp4')">
+                <video muted playsinline>
+                    <source src="videos/bus1.mp4" type="video/mp4">
+                </video>
+                <p class="click-hint">▶ Click to watch</p>
+            </div>
+
+            <div class="video-card" onclick="openVideo('videos/bus2.mp4')">
+                <video muted playsinline>
+                    <source src="videos/bus2.mp4" type="video/mp4">
+                </video>
+                <p class="click-hint">▶ Click to watch</p>
+            </div>
+
+            <div class="video-card" onclick="openVideo('videos/bus3.mp4')">
+                <video muted playsinline>
+                    <source src="videos/bus3.mp4" type="video/mp4">
+                </video>
+                <p class="click-hint">▶ Click to watch</p>
+            </div>
+
+            <div class="video-card" onclick="openVideo('videos/bus4.mp4')">
+                <video muted playsinline>
+                    <source src="videos/bus4.mp4" type="video/mp4">
+                </video>
+                <p class="click-hint">▶ Click to watch</p>
+            </div>
+
+            <div class="video-card" onclick="openVideo('videos/bus5.mp4')">
+                <video muted playsinline>
+                    <source src="videos/bus5.mp4" type="video/mp4">
+                </video>
+                <p class="click-hint">▶ Click to watch</p>
+            </div>
+
+            <div class="video-card" onclick="openVideo('videos/bus6.mp4')">
+                <video muted playsinline>
+                    <source src="videos/bus6.mp4" type="video/mp4">
+                </video>
+                <p class="click-hint">▶ Click to watch</p>
+            </div>
+
+        </div>
+
+
+        <p class="bus-ending">
+            From ordinary rides to unforgettable memories...<br>
+            somehow, every journey became a part of the story. 🚌❤️
+        </p>
+
+
+        <!-- ========================= -->
+        <!-- BACK BUTTON -->
+        <!-- ========================= -->
+
+        <a href="friends.html" class="back-btn">
+            ← Back to Friends
+        </a>
+
+    </div>
+
+
+    <!-- ========================= -->
+    <!-- POPUP -->
+    <!-- ========================= -->
+
+    <div class="popup" id="popup" onclick="closePopup(event)">
+
+        <button class="close-btn" onclick="closePopup()">×</button>
+
+        <div class="popup-content" id="popupContent"></div>
+
+    </div>
+
+
+    <!-- ========================= -->
+    <!-- JAVASCRIPT -->
+    <!-- ========================= -->
+
+    <script>
+
+        const popup = document.getElementById("popup");
+        const popupContent = document.getElementById("popupContent");
+
+
+        // =========================
+        // OPEN PHOTO
+        // =========================
+
+        function openPhoto(imageSrc) {
+
+            popupContent.innerHTML = `
+                <img src="${imageSrc}" alt="Bus Memory">
+            `;
+
+            popup.classList.add("active");
+
+            document.body.style.overflow = "hidden";
+        }
+
+
+        // =========================
+        // OPEN VIDEO
+        // =========================
+
+        function openVideo(videoSrc) {
+
+            popupContent.innerHTML = `
+                <video controls autoplay playsinline>
+                    <source src="${videoSrc}" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            `;
+
+            popup.classList.add("active");
+
+            document.body.style.overflow = "hidden";
+        }
+
+
+        // =========================
+        // CLOSE POPUP
+        // =========================
+
+        function closePopup(event) {
+
+            if (
+                event &&
+                event.target !== popup &&
+                !event.target.classList.contains("close-btn")
+            ) {
+                return;
+            }
+
+            popup.classList.remove("active");
+
+            popupContent.innerHTML = "";
+
+            document.body.style.overflow = "auto";
+        }
+
+
+        // =========================
+        // ESC KEY TO CLOSE
+        // =========================
+
+        document.addEventListener("keydown", function(event) {
+
+            if (event.key === "Escape") {
+                popup.classList.remove("active");
+                popupContent.innerHTML = "";
+                document.body.style.overflow = "auto";
+            }
+
+        });
+
+    </script>
+
+</body>
+</html>

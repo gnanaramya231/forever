@@ -2,132 +2,451 @@
 <html lang="en">
 
 <head>
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
 
     <title>Letters For Anu 💌</title>
 
     <link rel="stylesheet" href="style.css">
+
+    <style>
+
+        .letters-note {
+
+            max-width: 760px;
+
+            margin:
+                0 auto 10px;
+
+            color: #3f2930;
+
+            font-size: 16px;
+
+            font-weight: 600;
+
+            line-height: 1.7;
+        }
+
+
+        .letters-hint {
+
+            max-width: 700px;
+
+            margin:
+                0 auto 30px;
+
+            color: #4a2c35;
+
+            font-size: 14px;
+
+            font-weight: 600;
+
+            line-height: 1.6;
+        }
+
+
+        .letters-ending {
+
+            max-width: 800px;
+
+            margin:
+                35px auto 5px;
+
+            color: #000000;
+
+            font-size: 16px;
+
+            font-weight: 600;
+
+            line-height: 1.7;
+        }
+
+
+        /* =====================================
+           LETTER ROWS
+        ===================================== */
+
+        .letters-row {
+
+            display: grid;
+
+            gap: 25px;
+
+            justify-content: center;
+
+            align-items: stretch;
+        }
+
+
+        /* FIRST ROW - 4 LETTERS */
+
+        .top-row {
+
+            grid-template-columns:
+                repeat(4, 1fr);
+
+            max-width: 1200px;
+
+            margin:
+                0 auto 25px;
+        }
+
+
+        /* SECOND ROW - 2 LETTERS */
+
+        .bottom-row {
+
+            grid-template-columns:
+                repeat(2, minmax(250px, 300px));
+
+            max-width: 650px;
+
+            margin:
+                0 auto;
+        }
+
+
+        /* =====================================
+           LETTER CARD
+        ===================================== */
+
+        .letter-envelope {
+
+            cursor: pointer;
+
+            transition:
+                transform .3s ease,
+                box-shadow .3s ease;
+        }
+
+
+        .letter-envelope:hover {
+
+            transform:
+                translateY(-8px)
+                scale(1.03);
+        }
+
+
+        /* =====================================
+           MOBILE
+        ===================================== */
+
+        @media (max-width: 1000px) {
+
+            .top-row {
+
+                grid-template-columns:
+                    repeat(2, 1fr);
+
+                max-width: 650px;
+            }
+
+            .bottom-row {
+
+                grid-template-columns:
+                    repeat(2, 1fr);
+
+                max-width: 650px;
+            }
+        }
+
+
+        @media (max-width: 600px) {
+
+            .letters-note {
+
+                font-size: 15px;
+            }
+
+
+            .letters-hint {
+
+                font-size: 13px;
+            }
+
+
+            .letters-ending {
+
+                font-size: 15px;
+
+                margin-top: 30px;
+            }
+
+
+            .top-row,
+            .bottom-row {
+
+                grid-template-columns: 1fr;
+
+                max-width: 350px;
+
+                gap: 20px;
+            }
+
+        }
+
+    </style>
+
 </head>
+
 
 <body>
 
-    <section class="letters-page">
 
-        <div class="letters-container">
-
-            <h1>💌 Letters From Your People</h1>
-
-            <p class="letters-intro">
-                Seven little letters, seven little pieces of love... ❤️
-            </p>
+<section class="letters-page">
 
 
-            <!-- TOP ROW — 4 LETTERS -->
-
-            <div class="letters-row top-row">
-
-                <div class="letter-envelope"
-                     onclick="window.location.href='letter-deepika.html'">
-
-                    <div class="envelope-icon">💌</div>
-
-                    <h2>Letter 1</h2>
-
-                    <p>A little message for you ❤️</p>
-
-                </div>
+    <div class="letters-container">
 
 
-                <div class="letter-envelope"
-                     onclick="window.location.href='letter-Chitti.html'">
+        <!-- =====================================
+             TITLE
+        ===================================== -->
 
-                    <div class="envelope-icon">🌸</div>
+        <h1>
 
-                    <h2>Letter 2</h2>
+            💌 Letters From Your People
 
-                    <p>Words written with love ✨</p>
-
-                </div>
-
-
-                <div class="letter-envelope"
-                     onclick="window.location.href='letter-vidya.html'">
-
-                    <div class="envelope-icon">💕</div>
-
-                    <h2>Letter 3</h2>
-
-                    <p>A memory in words ❤️</p>
-
-                </div>
+        </h1>
 
 
-                <div class="letter-envelope"
-                     onclick="window.location.href='letter-4.html'">
+        <p class="letters-intro">
 
-                    <div class="envelope-icon">🥰</div>
+            Six little letters, six little pieces of love... ❤️
 
-                    <h2>Letter 4</h2>
+        </p>
 
-                    <p>A little surprise for you 💌</p>
+
+        <p class="letters-note">
+
+            Each envelope holds a few words from someone
+            who wanted to make your birthday
+            a little more special. 🥹💗
+
+        </p>
+
+
+        <p class="letters-hint">
+
+            Open them one by one...
+            because every letter has its own little story. 💌✨
+
+        </p>
+
+
+        <!-- =====================================
+             TOP ROW — 4 LETTERS
+        ===================================== -->
+
+        <div class="letters-row top-row">
+
+
+            <!-- LETTER 1 -->
+
+            <div class="letter-envelope"
+                 onclick="window.location.href='letter-deepika.html'">
+
+                <div class="envelope-icon">
+
+                    💌
 
                 </div>
+
+                <h2>
+
+                    Letter 1
+
+                </h2>
+
+                <p>
+
+                    A little message for you ❤️
+
+                </p>
 
             </div>
 
 
-            <!-- SECOND ROW — 3 LETTERS -->
+            <!-- LETTER 2 -->
 
-            <div class="letters-row bottom-row">
+            <div class="letter-envelope"
+                 onclick="window.location.href='letter-Chitti.html'">
 
-                <div class="letter-envelope"
-                     onclick="window.location.href='letter-5.html'">
+                <div class="envelope-icon">
 
-                    <div class="envelope-icon">✨</div>
-
-                    <h2>Letter 5</h2>
-
-                    <p>Something from the heart 💖</p>
+                    🌸
 
                 </div>
 
+                <h2>
 
-                <div class="letter-envelope"
-                     onclick="window.location.href='letter-6.html'">
+                    Letter 2
 
-                    <div class="envelope-icon">🌷</div>
+                </h2>
 
-                    <h2>Letter 6</h2>
+                <p>
 
-                    <p>A beautiful little note ❤️</p>
+                    Words written with love ✨
 
-                </div>
-
-
-                <div class="letter-envelope"
-                     onclick="window.location.href='letter-7.html'">
-
-                    <div class="envelope-icon">🎀</div>
-
-                    <h2>Letter 7</h2>
-
-                    <p>One more thing for you 💕</p>
-
-                </div>
+                </p>
 
             </div>
 
 
-            <button class="back-memory-button"
-                    onclick="window.location.href='secret.html'">
-                    🔐 Unlock The Secret
+            <!-- LETTER 3 -->
 
-            </button>
+            <div class="letter-envelope"
+                 onclick="window.location.href='letter-vidya.html'">
+
+                <div class="envelope-icon">
+
+                    💕
+
+                </div>
+
+                <h2>
+
+                    Letter 3
+
+                </h2>
+
+                <p>
+
+                    A memory in words ❤️
+
+                </p>
+
+            </div>
+
+
+            <!-- LETTER 4 -->
+
+            <div class="letter-envelope"
+                 onclick="window.location.href='letter-satya.html'">
+
+                <div class="envelope-icon">
+
+                    🥰
+
+                </div>
+
+                <h2>
+
+                    Letter 4
+
+                </h2>
+
+                <p>
+
+                    A little surprise for you 💌
+
+                </p>
+
+            </div>
+
 
         </div>
 
-    </section>
+
+        <!-- =====================================
+             SECOND ROW — 2 LETTERS
+        ===================================== -->
+
+        <div class="letters-row bottom-row">
+
+
+            <!-- LETTER 5 -->
+
+            <div class="letter-envelope"
+                 onclick="window.location.href='letter-prasanna.html'">
+
+                <div class="envelope-icon">
+
+                    ✨
+
+                </div>
+
+                <h2>
+
+                    Letter 5
+
+                </h2>
+
+                <p>
+
+                    Something from the heart 💖
+
+                </p>
+
+            </div>
+
+
+            <!-- LETTER 6 -->
+
+            <div class="letter-envelope"
+                 onclick="window.location.href='letter-maha.html'">
+
+                <div class="envelope-icon">
+
+                    🌷
+
+                </div>
+
+                <h2>
+
+                    Letter 6
+
+                </h2>
+
+                <p>
+
+                    A beautiful little note ❤️
+
+                </p>
+
+            </div>
+
+
+        </div>
+
+
+        <!-- =====================================
+             ENDING
+        ===================================== -->
+
+        <p class="letters-ending">
+
+            Six letters, six voices,
+            six little pieces of love...<br>
+
+            and together, they make this birthday
+            a little more unforgettable. ❤️
+
+        </p>
+
+
+        <!-- =====================================
+             SECRET BUTTON
+        ===================================== -->
+
+        <button
+            class="back-memory-button"
+            onclick="window.location.href='secret.html'">
+
+            🔐 Unlock The Secret
+
+        </button>
+
+
+    </div>
+
+
+</section>
+
 
 </body>
 

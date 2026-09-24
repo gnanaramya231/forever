@@ -14,74 +14,108 @@
 
     <style>
 
-        /* =====================================
-           UNFORGETTABLE MOMENTS
-        ===================================== */
-
         .memories {
-
             padding: 50px 5%;
-
             text-align: center;
-
         }
-
 
         .memories h2 {
-
             font-size: 38px;
-
             margin-bottom: 10px;
-
         }
-
 
         .memory-intro {
-
             font-size: 18px;
-
             margin-bottom: 40px;
-
         }
-
 
         .media-title {
-
             font-size: 28px;
-
-            margin:
-                35px 0 30px;
-
+            margin: 35px 0 30px;
         }
 
 
-        /* =====================================
+        .unforgettable-note {
+            max-width: 850px;
+            margin: 0 auto 12px;
+            color: #3f2930;
+            font-size: 17px;
+            font-weight: 600;
+            line-height: 1.7;
+        }
+
+        .unforgettable-hint {
+            max-width: 750px;
+            margin: 0 auto 35px;
+            color: #4a2c35;
+            font-size: 15px;
+            font-weight: 600;
+            line-height: 1.6;
+        }
+
+        .unforgettable-ending {
+            max-width: 850px;
+            margin: 50px auto 0;
+            color: #3f2930;
+            font-size: 18px;
+            font-weight: 600;
+            line-height: 1.8;
+        }
+
+        /* =========================
            VIDEO GALLERY
-        ===================================== */
+        ========================= */
 
         .video-gallery {
-
             display: grid;
-
-            grid-template-columns:
-                repeat(3, 1fr);
-
-            gap: 30px;
-
-            max-width: 1400px;
-
+            grid-template-columns: repeat(7, minmax(0, 1fr));
+            gap: 28px;
+            max-width: 1500px;
             margin: 0 auto;
-
+            align-items: center;
         }
 
+        /* First row: 1 - 2 - 3
+           Second row: 4 - 5 - 6 - 7
+           arranged in a staggered pattern */
+        .video-card:nth-child(1) {
+            grid-column: 2;
+            grid-row: 1;
+        }
+
+        .video-card:nth-child(2) {
+            grid-column: 4;
+            grid-row: 1;
+        }
+
+        .video-card:nth-child(3) {
+            grid-column: 6;
+            grid-row: 1;
+        }
+
+        .video-card:nth-child(4) {
+            grid-column: 1;
+            grid-row: 2;
+        }
+
+        .video-card:nth-child(5) {
+            grid-column: 3;
+            grid-row: 2;
+        }
+
+        .video-card:nth-child(6) {
+            grid-column: 5;
+            grid-row: 2;
+        }
+
+        .video-card:nth-child(7) {
+            grid-column: 7;
+            grid-row: 2;
+        }
 
         .video-card {
-
-            background:
-                rgba(255,255,255,.94);
-
+            background: rgba(255,255,255,.94);
             padding: 14px;
-
             border-radius: 20px;
 
             box-shadow:
@@ -91,58 +125,165 @@
                 transform .3s ease,
                 box-shadow .3s ease;
 
+            cursor: pointer;
         }
 
-
         .video-card:hover {
-
             transform:
                 translateY(-7px)
                 scale(1.02);
 
             box-shadow:
                 0 15px 30px rgba(0,0,0,.25);
-
         }
-
 
         .video-card video {
-
             width: 100%;
-
             height: 300px;
-
             object-fit: contain;
-
             background: #111;
-
             border-radius: 14px;
-
             display: block;
 
+            /* Important:
+               clicking the video opens popup */
+            pointer-events: none;
         }
 
-
         .video-card p {
-
             font-family:
                 "Segoe Print",
                 "Comic Sans MS",
                 cursive;
 
             font-size: 15px;
-
             color: #6b304c;
-
             margin:
                 12px 5px 5px;
+        }
+
+
+        /* =========================
+           VIDEO POPUP
+        ========================= */
+
+        .video-lightbox {
+            display: none;
+
+            position: fixed;
+
+            inset: 0;
+
+            background: rgba(0, 0, 0, 0.92);
+
+            z-index: 9999;
+
+            align-items: center;
+
+            justify-content: center;
+
+            padding: 30px;
+        }
+
+        .video-lightbox.active {
+            display: flex;
+        }
+
+        .video-popup-content {
+            max-width: 92vw;
+            max-height: 88vh;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+        }
+
+        .video-popup-content video {
+            max-width: 92vw;
+            max-height: 85vh;
+
+            width: auto;
+            height: auto;
+
+            background: black;
+
+            border-radius: 14px;
+
+            box-shadow:
+                0 10px 40px rgba(0,0,0,.6);
+
+            animation:
+                videoZoom .3s ease;
+        }
+
+        @keyframes videoZoom {
+
+            from {
+                transform: scale(.8);
+                opacity: 0;
+            }
+
+            to {
+                transform: scale(1);
+                opacity: 1;
+            }
 
         }
 
 
-        /* =====================================
+        /* =========================
+           CLOSE BUTTON
+        ========================= */
+
+        .video-close {
+
+            position: fixed;
+
+            top: 18px;
+
+            right: 25px;
+
+            width: 48px;
+
+            height: 48px;
+
+            border: none;
+
+            border-radius: 50%;
+
+            background: white;
+
+            color: #c84b76;
+
+            font-size: 30px;
+
+            font-weight: bold;
+
+            cursor: pointer;
+
+            z-index: 10000;
+
+            box-shadow:
+                0 5px 15px rgba(0,0,0,.3);
+
+            transition: .3s ease;
+        }
+
+        .video-close:hover {
+
+            transform:
+                rotate(90deg)
+                scale(1.1);
+
+            background: #ffe4ec;
+        }
+
+
+        /* =========================
            CONTINUE TO LETTER
-        ===================================== */
+        ========================= */
 
         .continue-letter-button {
 
@@ -170,40 +311,82 @@
 
             transition:
                 transform .3s ease;
-
         }
-
 
         .continue-letter-button:hover {
 
             transform:
                 translateY(-3px)
                 scale(1.04);
-
         }
 
 
-        /* =====================================
+        /* =========================
            TABLET
-        ===================================== */
+        ========================= */
 
-        @media (max-width: 1000px) {
+        @media (max-width: 1100px) {
 
             .video-gallery {
-
-                grid-template-columns:
-                    repeat(2, 1fr);
-
+                grid-template-columns: repeat(4, minmax(0, 1fr));
+                gap: 22px;
             }
 
+            .video-card:nth-child(1) {
+                grid-column: 1;
+                grid-row: 1;
+            }
+
+            .video-card:nth-child(2) {
+                grid-column: 2;
+                grid-row: 1;
+            }
+
+            .video-card:nth-child(3) {
+                grid-column: 3;
+                grid-row: 1;
+            }
+
+            .video-card:nth-child(4) {
+                grid-column: 1;
+                grid-row: 2;
+            }
+
+            .video-card:nth-child(5) {
+                grid-column: 2;
+                grid-row: 2;
+            }
+
+            .video-card:nth-child(6) {
+                grid-column: 3;
+                grid-row: 2;
+            }
+
+            .video-card:nth-child(7) {
+                grid-column: 4;
+                grid-row: 2;
+            }
         }
 
 
-        /* =====================================
+        /* =========================
            MOBILE
-        ===================================== */
+        ========================= */
 
         @media (max-width: 650px) {
+
+            .unforgettable-note {
+                font-size: 15px;
+            }
+
+            .unforgettable-hint {
+                font-size: 14px;
+            }
+
+            .unforgettable-ending {
+                font-size: 16px;
+                margin-top: 35px;
+            }
 
             .memories {
 
@@ -212,24 +395,59 @@
 
             }
 
-
             .memories h2 {
 
                 font-size: 28px;
 
             }
 
-
             .video-gallery {
-
                 grid-template-columns: 1fr;
-
+                gap: 22px;
             }
 
+            .video-card:nth-child(1),
+            .video-card:nth-child(2),
+            .video-card:nth-child(3),
+            .video-card:nth-child(4),
+            .video-card:nth-child(5),
+            .video-card:nth-child(6),
+            .video-card:nth-child(7) {
+                grid-column: 1;
+                grid-row: auto;
+            }
 
             .video-card video {
 
                 height: 280px;
+
+            }
+
+            .video-lightbox {
+
+                padding: 15px;
+
+            }
+
+            .video-popup-content video {
+
+                max-width: 95vw;
+
+                max-height: 80vh;
+
+            }
+
+            .video-close {
+
+                top: 12px;
+
+                right: 12px;
+
+                width: 42px;
+
+                height: 42px;
+
+                font-size: 26px;
 
             }
 
@@ -266,7 +484,7 @@
 
 
     <!-- =====================================
-         VIDEOS ONLY
+         VIDEOS
     ===================================== -->
 
     <h3 class="media-title">
@@ -281,17 +499,14 @@
 
         <!-- VIDEO 1 -->
 
-        <div class="video-card">
+        <div class="video-card"
+             onclick="openVideo('videos/unforgettable1.mp4')">
 
-            <video controls>
+            <video muted playsinline>
 
                 <source
                     src="videos/unforgettable1.mp4"
-                    type="video/mp4"
-                >
-
-                Your browser does not support
-                video playback.
+                    type="video/mp4">
 
             </video>
 
@@ -304,17 +519,14 @@
 
         <!-- VIDEO 2 -->
 
-        <div class="video-card">
+        <div class="video-card"
+             onclick="openVideo('videos/unforgettable2.mp4')">
 
-            <video controls>
+            <video muted playsinline>
 
                 <source
                     src="videos/unforgettable2.mp4"
-                    type="video/mp4"
-                >
-
-                Your browser does not support
-                video playback.
+                    type="video/mp4">
 
             </video>
 
@@ -327,17 +539,14 @@
 
         <!-- VIDEO 3 -->
 
-        <div class="video-card">
+        <div class="video-card"
+             onclick="openVideo('videos/unforgettable3.mp4')">
 
-            <video controls>
+            <video muted playsinline>
 
                 <source
                     src="videos/unforgettable3.mp4"
-                    type="video/mp4"
-                >
-
-                Your browser does not support
-                video playback.
+                    type="video/mp4">
 
             </video>
 
@@ -350,17 +559,14 @@
 
         <!-- VIDEO 4 -->
 
-        <div class="video-card">
+        <div class="video-card"
+             onclick="openVideo('videos/unforgettable4.mp4')">
 
-            <video controls>
+            <video muted playsinline>
 
                 <source
                     src="videos/unforgettable4.mp4"
-                    type="video/mp4"
-                >
-
-                Your browser does not support
-                video playback.
+                    type="video/mp4">
 
             </video>
 
@@ -373,17 +579,14 @@
 
         <!-- VIDEO 5 -->
 
-        <div class="video-card">
+        <div class="video-card"
+             onclick="openVideo('videos/unforgettable5.mp4')">
 
-            <video controls>
+            <video muted playsinline>
 
                 <source
                     src="videos/unforgettable5.mp4"
-                    type="video/mp4"
-                >
-
-                Your browser does not support
-                video playback.
+                    type="video/mp4">
 
             </video>
 
@@ -396,17 +599,14 @@
 
         <!-- VIDEO 6 -->
 
-        <div class="video-card">
+        <div class="video-card"
+             onclick="openVideo('videos/unforgettable6.mp4')">
 
-            <video controls>
+            <video muted playsinline>
 
                 <source
                     src="videos/unforgettable6.mp4"
-                    type="video/mp4"
-                >
-
-                Your browser does not support
-                video playback.
+                    type="video/mp4">
 
             </video>
 
@@ -419,206 +619,19 @@
 
         <!-- VIDEO 7 -->
 
-        <div class="video-card">
+        <div class="video-card"
+             onclick="openVideo('videos/unforgettable7.mp4')">
 
-            <video controls>
+            <video muted playsinline>
 
                 <source
                     src="videos/unforgettable7.mp4"
-                    type="video/mp4"
-                >
-
-                Your browser does not support
-                video playback.
+                    type="video/mp4">
 
             </video>
 
             <p>
-                A beautiful memory captured. ✨
-            </p>
-
-        </div>
-
-
-        <!-- VIDEO 8 -->
-
-        <div class="video-card">
-
-            <video controls>
-
-                <source
-                    src="videos/unforgettable8.mp4"
-                    type="video/mp4"
-                >
-
-                Your browser does not support
-                video playback.
-
-            </video>
-
-            <p>
-                Another unforgettable moment. 💕
-            </p>
-
-        </div>
-
-
-        <!-- VIDEO 9 -->
-
-        <div class="video-card">
-
-            <video controls>
-
-                <source
-                    src="videos/unforgettable9.mp4"
-                    type="video/mp4"
-                >
-
-                Your browser does not support
-                video playback.
-
-            </video>
-
-            <p>
-                A memory worth replaying. ❤️
-            </p>
-
-        </div>
-
-
-        <!-- VIDEO 10 -->
-
-        <div class="video-card">
-
-            <video controls>
-
-                <source
-                    src="videos/unforgettable10.mp4"
-                    type="video/mp4"
-                >
-
-                Your browser does not support
-                video playback.
-
-            </video>
-
-            <p>
-                Little moments, big memories. 🌷
-            </p>
-
-        </div>
-
-
-        <!-- VIDEO 11 -->
-
-        <div class="video-card">
-
-            <video controls>
-
-                <source
-                    src="videos/unforgettable11.mp4"
-                    type="video/mp4"
-                >
-
-                Your browser does not support
-                video playback.
-
-            </video>
-
-            <p>
-                A beautiful chapter of our story. ✨
-            </p>
-
-        </div>
-
-
-        <!-- VIDEO 12 -->
-
-        <div class="video-card">
-
-            <video controls>
-
-                <source
-                    src="videos/unforgettable12.mp4"
-                    type="video/mp4"
-                >
-
-                Your browser does not support
-                video playback.
-
-            </video>
-
-            <p>
-                A moment frozen in time. ❤️
-            </p>
-
-        </div>
-
-
-        <!-- VIDEO 13 -->
-
-        <div class="video-card">
-
-            <video controls>
-
-                <source
-                    src="videos/unforgettable13.mp4"
-                    type="video/mp4"
-                >
-
-                Your browser does not support
-                video playback.
-
-            </video>
-
-            <p>
-                Another memory we made together. 💕
-            </p>
-
-        </div>
-
-
-        <!-- VIDEO 14 -->
-
-        <div class="video-card">
-
-            <video controls>
-
-                <source
-                    src="videos/unforgettable14.mp4"
-                    type="video/mp4"
-                >
-
-                Your browser does not support
-                video playback.
-
-            </video>
-
-            <p>
-                One more little memory. 🌸
-            </p>
-
-        </div>
-
-
-        <!-- VIDEO 15 -->
-
-        <div class="video-card">
-
-            <video controls>
-
-                <source
-                    src="videos/unforgettable15.mp4"
-                    type="video/mp4"
-                >
-
-                Your browser does not support
-                video playback.
-
-            </video>
-
-            <p>
-                Fifteen videos, countless memories. ❤️
+                The last little memory in this collection. ✨
             </p>
 
         </div>
@@ -627,6 +640,38 @@
     </div>
 
 
+
+    <!-- =====================================
+         VIDEO POPUP
+    ===================================== -->
+
+    <div class="video-lightbox"
+         id="videoLightbox"
+         onclick="closeVideo(event)">
+
+
+        <button class="video-close"
+                onclick="closeVideo(event)">
+
+            ×
+
+        </button>
+
+
+        <div class="video-popup-content"
+             id="videoPopupContent">
+
+        </div>
+
+
+    </div>
+
+
+
+    <div class="unforgettable-ending">
+        Seven little videos, countless little memories...<br>
+        and every one of them holds a moment worth remembering. ❤️✨
+    </div>
 
     <!-- =====================================
          NEXT PAGE
@@ -642,6 +687,120 @@
 
 
 </section>
+
+
+
+<!-- =====================================
+     JAVASCRIPT
+===================================== -->
+
+<script>
+
+
+    const videoLightbox =
+        document.getElementById("videoLightbox");
+
+
+    const videoPopupContent =
+        document.getElementById("videoPopupContent");
+
+
+
+    /* =========================
+       OPEN VIDEO
+    ========================= */
+
+    function openVideo(videoSrc) {
+
+
+        videoPopupContent.innerHTML = `
+
+            <video
+                controls
+                autoplay
+                playsinline>
+
+                <source
+                    src="${videoSrc}"
+                    type="video/mp4">
+
+                Your browser does not support
+                video playback.
+
+            </video>
+
+        `;
+
+
+        videoLightbox.classList.add("active");
+
+
+        document.body.style.overflow = "hidden";
+
+    }
+
+
+
+    /* =========================
+       CLOSE VIDEO
+    ========================= */
+
+    function closeVideo(event) {
+
+
+        if (
+
+            event &&
+
+            event.target !== videoLightbox &&
+
+            !event.target.classList.contains("video-close")
+
+        ) {
+
+            return;
+
+        }
+
+
+        videoLightbox.classList.remove("active");
+
+
+        videoPopupContent.innerHTML = "";
+
+
+        document.body.style.overflow = "";
+
+    }
+
+
+
+    /* =========================
+       ESC KEY
+    ========================= */
+
+    document.addEventListener(
+        "keydown",
+        function(event) {
+
+
+            if (event.key === "Escape") {
+
+
+                videoLightbox.classList.remove("active");
+
+
+                videoPopupContent.innerHTML = "";
+
+
+                document.body.style.overflow = "";
+
+            }
+
+        }
+    );
+
+</script>
 
 
 </body>

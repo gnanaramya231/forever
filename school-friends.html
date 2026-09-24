@@ -1,0 +1,812 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>School Friends 🏫❤️</title>
+
+    <link rel="stylesheet" href="style.css">
+
+
+    <style>
+
+        /* =========================
+           SCHOOL FRIENDS SECTION
+        ========================= */
+
+        .school-section {
+
+            min-height: 100vh;
+
+            padding: 50px 20px;
+
+            text-align: center;
+
+        }
+
+
+        .school-title {
+
+            font-size: 38px;
+
+            margin-bottom: 10px;
+
+            color: #3f2930;
+
+        }
+
+
+        .school-subtitle {
+
+            font-size: 18px;
+
+            margin-bottom: 12px;
+
+            color: #4a2c35;
+
+        }
+
+
+        .school-note {
+
+            max-width: 700px;
+
+            margin: 0 auto 10px;
+
+            font-size: 17px;
+
+            line-height: 1.7;
+
+            color: #4a2c35;
+
+        }
+
+
+        .school-hint {
+
+            font-size: 14px;
+
+            margin-bottom: 35px;
+
+            color: #5a3b43;
+
+        }
+
+
+        /* =========================
+           PHOTO GALLERY
+        ========================= */
+
+        .school-gallery {
+
+            max-width: 1100px;
+
+            margin: auto;
+
+            display: grid;
+
+            grid-template-columns: repeat(3, 1fr);
+
+            gap: 22px;
+
+        }
+
+
+        .school-card {
+
+            overflow: hidden;
+
+            border-radius: 18px;
+
+            background: white;
+
+            box-shadow:
+                0 8px 25px rgba(0, 0, 0, 0.15);
+
+            cursor: pointer;
+
+            transition: 0.3s ease;
+
+        }
+
+
+        .school-card:hover {
+
+            transform: translateY(-6px);
+
+            box-shadow:
+                0 12px 30px rgba(0, 0, 0, 0.20);
+
+        }
+
+
+        .school-card img {
+
+            width: 100%;
+
+            height: 300px;
+
+            display: block;
+
+            object-fit: cover;
+
+            transition: transform 0.4s ease;
+
+        }
+
+
+        .school-card:hover img {
+
+            transform: scale(1.05);
+
+        }
+
+
+        /* =========================
+           PHOTO LIGHTBOX
+        ========================= */
+
+        .photo-lightbox {
+
+            display: none;
+
+            position: fixed;
+
+            inset: 0;
+
+            background: rgba(0, 0, 0, 0.92);
+
+            z-index: 9999;
+
+            align-items: center;
+
+            justify-content: center;
+
+            padding: 30px;
+
+        }
+
+
+        .photo-lightbox.active {
+
+            display: flex;
+
+        }
+
+
+        .photo-lightbox img {
+
+            max-width: 92vw;
+
+            max-height: 90vh;
+
+            width: auto;
+
+            height: auto;
+
+            object-fit: contain;
+
+            border-radius: 12px;
+
+            box-shadow:
+                0 10px 40px rgba(0, 0, 0, 0.6);
+
+            animation: photoZoom 0.3s ease;
+
+        }
+
+
+        @keyframes photoZoom {
+
+            from {
+
+                transform: scale(0.8);
+
+                opacity: 0;
+
+            }
+
+            to {
+
+                transform: scale(1);
+
+                opacity: 1;
+
+            }
+
+        }
+
+
+        /* =========================
+           CLOSE BUTTON
+        ========================= */
+
+        .lightbox-close {
+
+            position: fixed;
+
+            top: 18px;
+
+            right: 25px;
+
+            width: 48px;
+
+            height: 48px;
+
+            border: none;
+
+            border-radius: 50%;
+
+            background: white;
+
+            color: #c84b76;
+
+            font-size: 30px;
+
+            font-weight: bold;
+
+            cursor: pointer;
+
+            z-index: 10000;
+
+            box-shadow:
+                0 5px 15px rgba(0, 0, 0, 0.3);
+
+            transition: 0.3s ease;
+
+        }
+
+
+        .lightbox-close:hover {
+
+            transform: rotate(90deg) scale(1.1);
+
+            background: #ffe4ec;
+
+        }
+
+
+        /* =========================
+           ENDING
+        ========================= */
+
+        .school-ending {
+
+            max-width: 700px;
+
+            margin: 40px auto 0;
+
+            font-size: 16px;
+
+            line-height: 1.8;
+
+            color: #3f2930;
+
+            font-weight: 600;
+
+        }
+
+
+        /* =========================
+           BACK BUTTON
+        ========================= */
+
+        .back-button {
+
+            display: inline-block;
+
+            margin-top: 35px;
+
+            padding: 13px 25px;
+
+            border-radius: 25px;
+
+            text-decoration: none;
+
+            font-weight: bold;
+
+            background: #ffffff;
+
+            color: #333;
+
+            box-shadow:
+                0 5px 15px rgba(0, 0, 0, 0.15);
+
+            transition: 0.3s ease;
+
+        }
+
+
+        .back-button:hover {
+
+            transform: translateY(-3px);
+
+        }
+
+
+        /* =========================
+           TABLET
+        ========================= */
+
+        @media (max-width: 768px) {
+
+            .school-gallery {
+
+                grid-template-columns: repeat(2, 1fr);
+
+            }
+
+
+            .school-card img {
+
+                height: 250px;
+
+            }
+
+        }
+
+
+        /* =========================
+           MOBILE
+        ========================= */
+
+        @media (max-width: 500px) {
+
+            .school-gallery {
+
+                grid-template-columns: 1fr;
+
+            }
+
+
+            .school-title {
+
+                font-size: 30px;
+
+            }
+
+
+            .school-subtitle {
+
+                font-size: 16px;
+
+            }
+
+
+            .school-card img {
+
+                height: 280px;
+
+            }
+
+
+            .photo-lightbox {
+
+                padding: 15px;
+
+            }
+
+
+            .photo-lightbox img {
+
+                max-width: 95vw;
+
+                max-height: 85vh;
+
+            }
+
+
+            .lightbox-close {
+
+                top: 12px;
+
+                right: 12px;
+
+                width: 42px;
+
+                height: 42px;
+
+                font-size: 26px;
+
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <section class="school-section">
+
+
+        <!-- =========================
+             INTRO
+        ========================= -->
+
+        <h1 class="school-title">
+
+            🏫 School Friends ❤️
+
+        </h1>
+
+
+        <p class="school-subtitle">
+
+            The days of classrooms, little adventures
+            and memories from where many stories began. ✨
+
+        </p>
+
+
+        <p class="school-note">
+
+            Some friendships begin with simple conversations,
+            silly moments and everyday school days...
+
+            <br>
+
+            And somehow, those little moments become
+            memories we never want to forget. 🥹❤️
+
+        </p>
+
+
+        <p class="school-hint">
+
+            Tap any photo to relive the school memories. 📸✨
+
+        </p>
+
+
+
+        <!-- =========================
+             PHOTO GALLERY
+        ========================= -->
+
+        <div class="school-gallery">
+
+
+            <!-- PHOTO 1 -->
+
+            <div class="school-card"
+                 onclick="openPhoto('images/sch1.jpeg')">
+
+                <img
+                    src="images/sch1.jpeg"
+                    alt="School Memory 1">
+
+            </div>
+
+
+
+            <!-- PHOTO 2 -->
+
+            <div class="school-card"
+                 onclick="openPhoto('images/sch2.jpeg')">
+
+                <img
+                    src="images/sch2.jpeg"
+                    alt="School Memory 2">
+
+            </div>
+
+
+
+            <!-- PHOTO 3 -->
+
+            <div class="school-card"
+                 onclick="openPhoto('images/sch3.jpeg')">
+
+                <img
+                    src="images/sch3.jpeg"
+                    alt="School Memory 3">
+
+            </div>
+
+
+
+            <!-- PHOTO 4 -->
+
+            <div class="school-card"
+                 onclick="openPhoto('images/sch4.jpeg')">
+
+                <img
+                    src="images/sch4.jpeg"
+                    alt="School Memory 4">
+
+            </div>
+
+
+
+            <!-- PHOTO 5 -->
+
+            <div class="school-card"
+                 onclick="openPhoto('images/sch5.jpeg')">
+
+                <img
+                    src="images/sch5.jpeg"
+                    alt="School Memory 5">
+
+            </div>
+
+
+
+            <!-- PHOTO 6 -->
+
+            <div class="school-card"
+                 onclick="openPhoto('images/sch6.jpeg')">
+
+                <img
+                    src="images/sch6.jpeg"
+                    alt="School Memory 6">
+
+            </div>
+
+
+
+            <!-- PHOTO 7 -->
+
+            <div class="school-card"
+                 onclick="openPhoto('images/sch7.jpeg')">
+
+                <img
+                    src="images/sch7.jpeg"
+                    alt="School Memory 7">
+
+            </div>
+
+
+
+            <!-- PHOTO 8 -->
+
+            <div class="school-card"
+                 onclick="openPhoto('images/sch8.jpeg')">
+
+                <img
+                    src="images/sch8.jpeg"
+                    alt="School Memory 8">
+
+            </div>
+
+
+
+            <!-- PHOTO 9 -->
+
+            <div class="school-card"
+                 onclick="openPhoto('images/sch9.jpeg')">
+
+                <img
+                    src="images/sch9.jpeg"
+                    alt="School Memory 9">
+
+            </div>
+
+
+
+            <!-- PHOTO 10 -->
+
+            <div class="school-card"
+                 onclick="openPhoto('images/sch10.jpeg')">
+
+                <img
+                    src="images/sch10.jpeg"
+                    alt="School Memory 10">
+
+            </div>
+
+
+        </div>
+
+
+
+        <!-- =========================
+             PHOTO LIGHTBOX
+        ========================= -->
+
+        <div
+            class="photo-lightbox"
+            id="photoLightbox"
+            onclick="closePhoto(event)"
+        >
+
+
+            <button
+                class="lightbox-close"
+                onclick="closePhoto(event)"
+            >
+
+                ×
+
+            </button>
+
+
+            <img
+                id="lightboxImage"
+                src=""
+                alt="School Memory"
+            >
+
+        </div>
+
+
+
+        <!-- =========================
+             ENDING
+        ========================= -->
+
+        <p class="school-ending">
+
+            Those school days may be a chapter from the past...
+
+            <br>
+
+            but the laughter, friendship and little moments
+            will always remain a part of the story. 🏫❤️
+
+        </p>
+
+
+
+        <!-- =========================
+             BACK BUTTON
+        ========================= -->
+
+        <a
+            href="friends.html"
+            class="back-button"
+        >
+
+            ← Back to Friends
+
+        </a>
+
+
+    </section>
+
+
+
+    <!-- =========================
+         JAVASCRIPT
+    ========================= -->
+
+    <script>
+
+
+        /* =========================
+           OPEN PHOTO
+        ========================= */
+
+        function openPhoto(src) {
+
+
+            const lightbox =
+                document.getElementById(
+                    "photoLightbox"
+                );
+
+
+            const image =
+                document.getElementById(
+                    "lightboxImage"
+                );
+
+
+            image.src = src;
+
+
+            lightbox.classList.add("active");
+
+
+            document.body.style.overflow =
+                "hidden";
+
+        }
+
+
+
+        /* =========================
+           CLOSE PHOTO
+        ========================= */
+
+        function closePhoto(event) {
+
+
+            if (
+                event &&
+                event.target !==
+                document.getElementById(
+                    "photoLightbox"
+                ) &&
+                !event.target.classList.contains(
+                    "lightbox-close"
+                )
+            ) {
+
+                return;
+
+            }
+
+
+            const lightbox =
+                document.getElementById(
+                    "photoLightbox"
+                );
+
+
+            const image =
+                document.getElementById(
+                    "lightboxImage"
+                );
+
+
+            lightbox.classList.remove(
+                "active"
+            );
+
+
+            image.src = "";
+
+
+            document.body.style.overflow =
+                "";
+
+        }
+
+
+
+        /* =========================
+           ESC KEY
+        ========================= */
+
+        document.addEventListener(
+            "keydown",
+            function(event) {
+
+
+                if (event.key === "Escape") {
+
+
+                    const lightbox =
+                        document.getElementById(
+                            "photoLightbox"
+                        );
+
+
+                    const image =
+                        document.getElementById(
+                            "lightboxImage"
+                        );
+
+
+                    lightbox.classList.remove(
+                        "active"
+                    );
+
+
+                    image.src = "";
+
+
+                    document.body.style.overflow =
+                        "";
+
+                }
+
+            }
+        );
+
+
+    </script>
+
+
+</body>
+
+</html>

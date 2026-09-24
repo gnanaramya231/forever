@@ -4,86 +4,588 @@
 <head>
 
     <meta charset="UTF-8">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Favorite Person ❤️</title>
 
     <link rel="stylesheet" href="style.css">
 
+
     <style>
 
+        /* =========================
+           FAVORITE SECTION
+        ========================= */
+
         .favorite-section {
+
             min-height: 100vh;
+
             padding: 50px 20px;
+
             text-align: center;
+
         }
+
 
         .favorite-title {
+
             font-size: 38px;
+
             margin-bottom: 10px;
+
         }
+
 
         .favorite-subtitle {
+
             font-size: 18px;
-            margin-bottom: 35px;
+
+            margin-bottom: 12px;
+
             opacity: 0.8;
+
         }
+
+
+        .favorite-note {
+
+            max-width: 700px;
+
+            margin: 0 auto 8px;
+
+            font-size: 17px;
+
+            line-height: 1.7;
+
+            opacity: 0.9;
+
+        }
+
+
+        .favorite-hint {
+
+            font-size: 14px;
+
+            margin-bottom: 35px;
+
+            opacity: 0.7;
+
+        }
+
+
+        /* =========================
+           PHOTO GALLERY
+        ========================= */
 
         .favorite-gallery {
+
             max-width: 1100px;
+
             margin: auto;
+
             display: grid;
+
             grid-template-columns: repeat(3, 1fr);
+
             gap: 22px;
+
         }
+
 
         .favorite-card {
+
             overflow: hidden;
+
             border-radius: 18px;
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+
+            box-shadow:
+                0 8px 25px rgba(0, 0, 0, 0.15);
+
             background: white;
+
+            cursor: pointer;
+
         }
+
 
         .favorite-card img {
+
             width: 100%;
+
             height: 300px;
+
             display: block;
+
             object-fit: cover;
+
             transition: transform 0.4s ease;
+
         }
+
 
         .favorite-card:hover img {
+
             transform: scale(1.05);
+
         }
 
-        .back-button {
-            display: inline-block;
-            margin-top: 40px;
-            padding: 13px 25px;
-            border-radius: 25px;
-            text-decoration: none;
-            font-weight: bold;
-            background: #ffffff;
-            color: #333;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+
+        /* =========================
+           VIDEO SECTION
+        ========================= */
+
+        .favorite-video-title {
+
+            margin-top: 55px;
+
+            margin-bottom: 10px;
+
+            font-size: 28px;
+
+            color: #3f2930;
+
         }
+
+
+        .favorite-video-note {
+
+            max-width: 700px;
+
+            margin: 0 auto 25px;
+
+            font-size: 16px;
+
+            line-height: 1.7;
+
+            color: #4a2c35;
+
+        }
+
+
+        .favorite-video-gallery {
+
+            max-width: 1100px;
+
+            margin: auto;
+
+            display: grid;
+
+            grid-template-columns: repeat(2, 1fr);
+
+            gap: 25px;
+
+        }
+
+
+        .favorite-video-card {
+
+            background: rgba(255, 255, 255, 0.9);
+
+            border-radius: 20px;
+
+            padding: 12px;
+
+            box-shadow:
+                0 8px 25px rgba(0, 0, 0, 0.15);
+
+            cursor: pointer;
+
+            transition: 0.3s ease;
+
+        }
+
+
+        .favorite-video-card:hover {
+
+            transform: translateY(-6px);
+
+            box-shadow:
+                0 12px 30px rgba(0, 0, 0, 0.2);
+
+        }
+
+
+        .favorite-video-card video {
+
+            width: 100%;
+
+            height: 300px;
+
+            object-fit: cover;
+
+            border-radius: 14px;
+
+            display: block;
+
+            pointer-events: none;
+
+        }
+
+
+        .favorite-video-caption {
+
+            margin: 12px 5px 5px;
+
+            color: #4a2c35;
+
+            font-size: 15px;
+
+            font-weight: 600;
+
+        }
+
+
+        /* =========================
+           PHOTO FULL SCREEN
+        ========================= */
+
+        .photo-lightbox {
+
+            display: none;
+
+            position: fixed;
+
+            inset: 0;
+
+            background: rgba(0, 0, 0, 0.92);
+
+            z-index: 9999;
+
+            align-items: center;
+
+            justify-content: center;
+
+            padding: 30px;
+
+        }
+
+
+        .photo-lightbox.active {
+
+            display: flex;
+
+        }
+
+
+        .photo-lightbox img {
+
+            max-width: 92vw;
+
+            max-height: 90vh;
+
+            width: auto;
+
+            height: auto;
+
+            object-fit: contain;
+
+            border-radius: 12px;
+
+            box-shadow:
+                0 10px 40px rgba(0, 0, 0, 0.6);
+
+            animation: photoZoom 0.3s ease;
+
+        }
+
+
+        @keyframes photoZoom {
+
+            from {
+
+                transform: scale(0.8);
+
+                opacity: 0;
+
+            }
+
+            to {
+
+                transform: scale(1);
+
+                opacity: 1;
+
+            }
+
+        }
+
+
+        /* =========================
+           VIDEO FULL SCREEN
+        ========================= */
+
+        .video-lightbox {
+
+            display: none;
+
+            position: fixed;
+
+            inset: 0;
+
+            background: rgba(0, 0, 0, 0.94);
+
+            z-index: 10001;
+
+            align-items: center;
+
+            justify-content: center;
+
+            padding: 30px;
+
+        }
+
+
+        .video-lightbox.active {
+
+            display: flex;
+
+        }
+
+
+        .video-lightbox video {
+
+            max-width: 92vw;
+
+            max-height: 88vh;
+
+            width: auto;
+
+            height: auto;
+
+            border-radius: 15px;
+
+            box-shadow:
+                0 10px 40px rgba(0, 0, 0, 0.7);
+
+            animation: videoZoom 0.3s ease;
+
+        }
+
+
+        @keyframes videoZoom {
+
+            from {
+
+                transform: scale(0.85);
+
+                opacity: 0;
+
+            }
+
+            to {
+
+                transform: scale(1);
+
+                opacity: 1;
+
+            }
+
+        }
+
+
+        /* =========================
+           CLOSE BUTTON
+        ========================= */
+
+        .lightbox-close {
+
+            position: fixed;
+
+            top: 18px;
+
+            right: 25px;
+
+            width: 48px;
+
+            height: 48px;
+
+            border: none;
+
+            border-radius: 50%;
+
+            background: white;
+
+            color: #c84b76;
+
+            font-size: 30px;
+
+            font-weight: bold;
+
+            cursor: pointer;
+
+            z-index: 10002;
+
+            box-shadow:
+                0 5px 15px rgba(0, 0, 0, 0.3);
+
+            transition: 0.3s ease;
+
+        }
+
+
+        .lightbox-close:hover {
+
+            transform: rotate(90deg) scale(1.1);
+
+            background: #ffe4ec;
+
+        }
+
+
+        /* =========================
+           ENDING
+        ========================= */
+
+        .favorite-ending {
+
+            margin: 45px auto 0;
+
+            font-size: 16px;
+
+            line-height: 1.7;
+
+            opacity: 0.85;
+
+        }
+
+
+        /* =========================
+           BACK BUTTON
+        ========================= */
+
+        .back-button {
+
+            display: inline-block;
+
+            margin-top: 40px;
+
+            padding: 13px 25px;
+
+            border-radius: 25px;
+
+            text-decoration: none;
+
+            font-weight: bold;
+
+            background: #ffffff;
+
+            color: #333;
+
+            box-shadow:
+                0 5px 15px rgba(0, 0, 0, 0.15);
+
+        }
+
+
+        /* =========================
+           TABLET
+        ========================= */
 
         @media (max-width: 768px) {
 
             .favorite-gallery {
+
                 grid-template-columns: repeat(2, 1fr);
+
             }
 
+
             .favorite-card img {
+
                 height: 250px;
+
+            }
+
+
+            .favorite-video-gallery {
+
+                grid-template-columns: 1fr;
+
+            }
+
+
+            .favorite-video-card video {
+
+                height: 280px;
+
             }
 
         }
 
+
+        /* =========================
+           MOBILE
+        ========================= */
+
         @media (max-width: 500px) {
 
             .favorite-gallery {
+
                 grid-template-columns: 1fr;
+
+            }
+
+
+            .photo-lightbox {
+
+                padding: 15px;
+
+            }
+
+
+            .photo-lightbox img {
+
+                max-width: 95vw;
+
+                max-height: 85vh;
+
+            }
+
+
+            .video-lightbox {
+
+                padding: 15px;
+
+            }
+
+
+            .video-lightbox video {
+
+                max-width: 95vw;
+
+                max-height: 82vh;
+
+            }
+
+
+            .lightbox-close {
+
+                top: 12px;
+
+                right: 12px;
+
+                width: 42px;
+
+                height: 42px;
+
+                font-size: 26px;
+
+            }
+
+
+            .favorite-title {
+
+                font-size: 30px;
+
+            }
+
+
+            .favorite-video-title {
+
+                font-size: 24px;
+
             }
 
         }
@@ -99,89 +601,638 @@
     <section class="favorite-section">
 
 
+        <!-- =========================
+             INTRO
+        ========================= -->
+
         <h1 class="favorite-title">
+
             ❤️ My Favorite Person ❤️
+
         </h1>
 
 
         <p class="favorite-subtitle">
-            Some people are memories... some people become memories. ✨
+
+            Some people are memories...
+            some people become memories. ✨
+
         </p>
 
+
+        <p class="favorite-note">
+
+            And sometimes, one person can make ordinary moments feel
+            a little more special. ❤️
+
+        </p>
+
+
+        <p class="favorite-hint">
+
+            Tap any photo to relive the moment. 📸✨
+
+        </p>
+
+
+
+        <!-- =========================
+             PHOTO GALLERY
+        ========================= -->
 
         <div class="favorite-gallery">
 
 
-            <div class="favorite-card">
-                <img src="images/fav1.jpeg" alt="Favorite Memory 1">
+            <div class="favorite-card"
+                 onclick="openPhoto('images/fav1.jpeg')">
+
+                <img src="images/fav1.jpeg"
+                     alt="Favorite Memory 1">
+
             </div>
 
-            <div class="favorite-card">
-                <img src="images/fav2.jpeg" alt="Favorite Memory 2">
+
+            <div class="favorite-card"
+                 onclick="openPhoto('images/fav2.jpeg')">
+
+                <img src="images/fav2.jpeg"
+                     alt="Favorite Memory 2">
+
             </div>
 
-            <div class="favorite-card">
-                <img src="images/fav3.jpeg" alt="Favorite Memory 3">
+
+            <div class="favorite-card"
+                 onclick="openPhoto('images/fav3.jpeg')">
+
+                <img src="images/fav3.jpeg"
+                     alt="Favorite Memory 3">
+
             </div>
 
-            <div class="favorite-card">
-                <img src="images/fav4.jpeg" alt="Favorite Memory 4">
+
+            <div class="favorite-card"
+                 onclick="openPhoto('images/fav4.jpeg')">
+
+                <img src="images/fav4.jpeg"
+                     alt="Favorite Memory 4">
+
             </div>
 
-            <div class="favorite-card">
-                <img src="images/fav5.jpeg" alt="Favorite Memory 5">
+
+            <div class="favorite-card"
+                 onclick="openPhoto('images/fav5.jpeg')">
+
+                <img src="images/fav5.jpeg"
+                     alt="Favorite Memory 5">
+
             </div>
 
-            <div class="favorite-card">
-                <img src="images/fav6.jpeg" alt="Favorite Memory 6">
+
+            <div class="favorite-card"
+                 onclick="openPhoto('images/fav6.jpeg')">
+
+                <img src="images/fav6.jpeg"
+                     alt="Favorite Memory 6">
+
             </div>
 
-            <div class="favorite-card">
-                <img src="images/fav7.jpeg" alt="Favorite Memory 7">
+
+            <div class="favorite-card"
+                 onclick="openPhoto('images/fav7.jpeg')">
+
+                <img src="images/fav7.jpeg"
+                     alt="Favorite Memory 7">
+
             </div>
 
-            <div class="favorite-card">
-                <img src="images/fav8.jpeg" alt="Favorite Memory 8">
+
+            <div class="favorite-card"
+                 onclick="openPhoto('images/fav8.jpeg')">
+
+                <img src="images/fav8.jpeg"
+                     alt="Favorite Memory 8">
+
             </div>
 
-            <div class="favorite-card">
-                <img src="images/fav9.jpeg" alt="Favorite Memory 9">
+
+            <div class="favorite-card"
+                 onclick="openPhoto('images/fav9.jpeg')">
+
+                <img src="images/fav9.jpeg"
+                     alt="Favorite Memory 9">
+
             </div>
 
-            <div class="favorite-card">
-                <img src="images/fav10.jpeg" alt="Favorite Memory 10">
+
+            <div class="favorite-card"
+                 onclick="openPhoto('images/fav10.jpeg')">
+
+                <img src="images/fav10.jpeg"
+                     alt="Favorite Memory 10">
+
             </div>
 
-            <div class="favorite-card">
-                <img src="images/fav11.jpeg" alt="Favorite Memory 11">
+
+            <div class="favorite-card"
+                 onclick="openPhoto('images/fav11.jpeg')">
+
+                <img src="images/fav11.jpeg"
+                     alt="Favorite Memory 11">
+
             </div>
 
-            <div class="favorite-card">
-                <img src="images/fav12.jpeg" alt="Favorite Memory 12">
+
+            <div class="favorite-card"
+                 onclick="openPhoto('images/fav12.jpeg')">
+
+                <img src="images/fav12.jpeg"
+                     alt="Favorite Memory 12">
+
             </div>
 
-            <div class="favorite-card">
-                <img src="images/fav13.jpeg" alt="Favorite Memory 13">
+
+            <div class="favorite-card"
+                 onclick="openPhoto('images/fav13.jpeg')">
+
+                <img src="images/fav13.jpeg"
+                     alt="Favorite Memory 13">
+
             </div>
 
-            <div class="favorite-card">
-                <img src="images/fav14.jpeg" alt="Favorite Memory 14">
+
+            <div class="favorite-card"
+                 onclick="openPhoto('images/fav14.jpeg')">
+
+                <img src="images/fav14.jpeg"
+                     alt="Favorite Memory 14">
+
             </div>
 
-            <div class="favorite-card">
-                <img src="images/fav15.jpeg" alt="Favorite Memory 15">
+
+            <div class="favorite-card"
+                 onclick="openPhoto('images/fav15.jpeg')">
+
+                <img src="images/fav15.jpeg"
+                     alt="Favorite Memory 15">
+
             </div>
 
 
         </div>
 
 
-        <a href="memories.html" class="back-button">
+
+        <!-- =========================
+             VIDEOS
+        ========================= -->
+
+        <h2 class="favorite-video-title">
+
+            🎥 A Few Moments In Motion ❤️
+
+        </h2>
+
+
+        <p class="favorite-video-note">
+
+            Some memories look even more beautiful
+            when they move. Tap a video and relive the moment. 🥹✨
+
+        </p>
+
+
+        <div class="favorite-video-gallery">
+
+
+            <!-- VIDEO 1 -->
+
+            <div class="favorite-video-card"
+                 onclick="openVideo('videos/favorite1.mp4')">
+
+                <video
+                    src="videos/favorite1.mp4"
+                    muted
+                    playsinline
+                    preload="metadata">
+                </video>
+
+                <p class="favorite-video-caption">
+
+                    🎥 Memory 01 ❤️
+
+                </p>
+
+            </div>
+
+
+
+            <!-- VIDEO 2 -->
+
+            <div class="favorite-video-card"
+                 onclick="openVideo('videos/favorite2.mp4')">
+
+                <video
+                    src="videos/favorite2.mp4"
+                    muted
+                    playsinline
+                    preload="metadata">
+                </video>
+
+                <p class="favorite-video-caption">
+
+                    🎥 Memory 02 ✨
+
+                </p>
+
+            </div>
+
+
+
+            <!-- VIDEO 3 -->
+
+            <div class="favorite-video-card"
+                 onclick="openVideo('videos/favorite3.mp4')">
+
+                <video
+                    src="videos/favorite3.mp4"
+                    muted
+                    playsinline
+                    preload="metadata">
+                </video>
+
+                <p class="favorite-video-caption">
+
+                    🎥 Memory 03 🥹
+
+                </p>
+
+            </div>
+
+
+
+            <!-- VIDEO 4 -->
+
+            <div class="favorite-video-card"
+                 onclick="openVideo('videos/favorite4.mp4')">
+
+                <video
+                    src="videos/favorite4.mp4"
+                    muted
+                    playsinline
+                    preload="metadata">
+                </video>
+
+                <p class="favorite-video-caption">
+
+                    🎥 Memory 04 ❤️
+
+                </p>
+
+            </div>
+
+
+        </div>
+
+
+
+        <!-- =========================
+             PHOTO LIGHTBOX
+        ========================= -->
+
+        <div class="photo-lightbox"
+             id="photoLightbox"
+             onclick="closePhoto(event)">
+
+
+            <button
+                class="lightbox-close"
+                onclick="closePhoto(event)">
+
+                ×
+
+            </button>
+
+
+            <img
+                id="lightboxImage"
+                src=""
+                alt="Favorite Memory">
+
+        </div>
+
+
+
+        <!-- =========================
+             VIDEO LIGHTBOX
+        ========================= -->
+
+        <div class="video-lightbox"
+             id="videoLightbox"
+             onclick="closeVideo(event)">
+
+
+            <button
+                class="lightbox-close"
+                onclick="closeVideo(event)">
+
+                ×
+
+            </button>
+
+
+            <video
+                id="lightboxVideo"
+                controls
+                playsinline
+            >
+
+                <source
+                    id="lightboxVideoSource"
+                    src=""
+                    type="video/mp4">
+
+                Your browser does not support
+                video playback.
+
+            </video>
+
+
+        </div>
+
+
+
+        <!-- =========================
+             ENDING
+        ========================= -->
+
+        <p class="favorite-ending">
+
+            Some moments are captured in photos...<br>
+
+            Some are captured in videos... 🎥<br>
+
+            but the feeling behind them stays in the heart. ❤️
+
+        </p>
+
+
+        <!-- =========================
+             BACK BUTTON
+        ========================= -->
+
+        <a href="memories.html"
+           class="back-button">
+
             ← Back to Memories
+
         </a>
 
 
     </section>
+
+
+
+    <!-- =========================
+         JAVASCRIPT
+    ========================= -->
+
+    <script>
+
+
+        /* =========================
+           OPEN PHOTO
+        ========================= */
+
+        function openPhoto(src) {
+
+
+            const lightbox =
+                document.getElementById("photoLightbox");
+
+
+            const image =
+                document.getElementById("lightboxImage");
+
+
+            image.src = src;
+
+
+            lightbox.classList.add("active");
+
+
+            document.body.style.overflow = "hidden";
+
+        }
+
+
+
+        /* =========================
+           CLOSE PHOTO
+        ========================= */
+
+        function closePhoto(event) {
+
+
+            if (
+                event &&
+                event.target !==
+                document.getElementById("photoLightbox") &&
+                !event.target.classList.contains("lightbox-close")
+            ) {
+
+                return;
+
+            }
+
+
+            const lightbox =
+                document.getElementById("photoLightbox");
+
+
+            const image =
+                document.getElementById("lightboxImage");
+
+
+            lightbox.classList.remove("active");
+
+
+            image.src = "";
+
+
+            document.body.style.overflow = "";
+
+        }
+
+
+
+        /* =========================
+           OPEN VIDEO
+        ========================= */
+
+        function openVideo(src) {
+
+
+            const lightbox =
+                document.getElementById("videoLightbox");
+
+
+            const video =
+                document.getElementById("lightboxVideo");
+
+
+            const source =
+                document.getElementById("lightboxVideoSource");
+
+
+            source.src = src;
+
+
+            video.load();
+
+
+            lightbox.classList.add("active");
+
+
+            document.body.style.overflow = "hidden";
+
+
+            video.play().catch(function() {
+
+                /* Browser may require manual play */
+
+            });
+
+        }
+
+
+
+        /* =========================
+           CLOSE VIDEO
+        ========================= */
+
+        function closeVideo(event) {
+
+
+            if (
+                event &&
+                event.target !==
+                document.getElementById("videoLightbox") &&
+                !event.target.classList.contains("lightbox-close")
+            ) {
+
+                return;
+
+            }
+
+
+            const lightbox =
+                document.getElementById("videoLightbox");
+
+
+            const video =
+                document.getElementById("lightboxVideo");
+
+
+            video.pause();
+
+
+            video.currentTime = 0;
+
+
+            lightbox.classList.remove("active");
+
+
+            document.getElementById(
+                "lightboxVideoSource"
+            ).src = "";
+
+
+            video.load();
+
+
+            document.body.style.overflow = "";
+
+        }
+
+
+
+        /* =========================
+           ESC KEY
+        ========================= */
+
+        document.addEventListener(
+            "keydown",
+            function(event) {
+
+
+                if (event.key === "Escape") {
+
+
+                    /* Close photo */
+
+                    const photoLightbox =
+                        document.getElementById(
+                            "photoLightbox"
+                        );
+
+
+                    const photoImage =
+                        document.getElementById(
+                            "lightboxImage"
+                        );
+
+
+                    photoLightbox.classList.remove(
+                        "active"
+                    );
+
+
+                    photoImage.src = "";
+
+
+
+                    /* Close video */
+
+                    const videoLightbox =
+                        document.getElementById(
+                            "videoLightbox"
+                        );
+
+
+                    const video =
+                        document.getElementById(
+                            "lightboxVideo"
+                        );
+
+
+                    video.pause();
+
+
+                    video.currentTime = 0;
+
+
+                    videoLightbox.classList.remove(
+                        "active"
+                    );
+
+
+                    document.getElementById(
+                        "lightboxVideoSource"
+                    ).src = "";
+
+
+                    video.load();
+
+
+                    document.body.style.overflow = "";
+
+                }
+
+            }
+        );
+
+
+    </script>
 
 
 </body>

@@ -8,9 +8,233 @@
     <meta name="viewport"
           content="width=device-width, initial-scale=1.0">
 
-    <title>Birthday Countdown 🎂</title>
+    <title>One Last Moment 🎂</title>
 
     <link rel="stylesheet" href="style.css">
+
+
+    <style>
+
+        /* ================================
+           COUNTDOWN PAGE
+        ================================= */
+
+        .countdown-content {
+            text-align: center;
+            animation: fadeIn 1s ease;
+        }
+
+
+        #countdown-number {
+            color: #3f2930;
+            font-size: 100px;
+            font-weight: 800;
+            line-height: 1;
+            animation: countdownPop 1.2s ease;
+        }
+
+
+        #countdown-text {
+            color: #4a2c35;
+            font-size: 22px;
+            font-weight: 600;
+            margin-top: 20px;
+            animation: softFade 1s ease;
+        }
+
+
+        /* ================================
+           FINAL REVEAL
+        ================================= */
+
+        #birthday-reveal {
+            display: none;
+            animation: revealMessage 1.5s ease forwards;
+        }
+
+
+        .big-heart {
+            font-size: 75px;
+            margin-bottom: 20px;
+            animation: heartBeat 1.5s infinite;
+        }
+
+
+        #birthday-reveal h1 {
+            color: #3f2930;
+            font-size: 30px;
+            line-height: 1.5;
+            font-weight: 700;
+            margin: 15px auto;
+            max-width: 750px;
+        }
+
+
+        #birthday-reveal h2 {
+            color: #4a2c35;
+            font-size: 21px;
+            line-height: 1.6;
+            font-weight: 600;
+            margin: 20px auto;
+            max-width: 700px;
+        }
+
+
+        #birthday-reveal p {
+            color: #4a2c35;
+            font-size: 18px;
+            font-weight: 600;
+            margin: 25px 0;
+        }
+
+
+        #birthday-reveal button {
+            margin-top: 15px;
+            padding: 14px 28px;
+            border: none;
+            border-radius: 14px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 700;
+            transition: 0.3s ease;
+        }
+
+
+        #birthday-reveal button:hover {
+            transform: scale(1.05);
+        }
+
+
+        /* ================================
+           ANIMATIONS
+        ================================= */
+
+        @keyframes fadeIn {
+
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+
+        }
+
+
+        @keyframes countdownPop {
+
+            0% {
+                opacity: 0;
+                transform: scale(0.5);
+            }
+
+            60% {
+                opacity: 1;
+                transform: scale(1.15);
+            }
+
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+
+        }
+
+
+        @keyframes softFade {
+
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+
+        }
+
+
+        @keyframes revealMessage {
+
+            from {
+                opacity: 0;
+                transform: translateY(30px) scale(0.95);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+
+        }
+
+
+        @keyframes heartBeat {
+
+            0% {
+                transform: scale(1);
+            }
+
+            25% {
+                transform: scale(1.12);
+            }
+
+            40% {
+                transform: scale(1);
+            }
+
+            60% {
+                transform: scale(1.12);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+
+        }
+
+
+        /* ================================
+           MOBILE
+        ================================= */
+
+        @media (max-width: 600px) {
+
+            #countdown-number {
+                font-size: 75px;
+            }
+
+
+            #countdown-text {
+                font-size: 18px;
+            }
+
+
+            .big-heart {
+                font-size: 60px;
+            }
+
+
+            #birthday-reveal h1 {
+                font-size: 24px;
+            }
+
+
+            #birthday-reveal h2 {
+                font-size: 18px;
+            }
+
+
+            #birthday-reveal p {
+                font-size: 16px;
+            }
+
+        }
+
+    </style>
 
 </head>
 
@@ -24,15 +248,21 @@
         <div class="countdown-content">
 
 
+            <!-- COUNTDOWN NUMBER -->
+
             <div id="countdown-number">
                 3
             </div>
 
 
+            <!-- COUNTDOWN MESSAGE -->
+
             <p id="countdown-text">
-                Get ready, Anu... ❤️
+                Something special is coming... ✨
             </p>
 
+
+            <!-- FINAL REVEAL -->
 
             <div id="birthday-reveal">
 
@@ -48,7 +278,8 @@
 
 
                 <h2>
-                    But I created this with lots of love, just for you. ❤️
+                    But I created this with lots of love,
+                    just for you. ❤️
                 </h2>
 
 
@@ -93,6 +324,21 @@
         let count = 3;
 
 
+        const messages = {
+
+            3: "Something special is coming... ✨",
+
+            2: "Almost there... 🥹❤️",
+
+            1: "One last moment... 👀✨"
+
+        };
+
+
+        /* Show first message */
+
+        text.innerHTML = messages[3];
+
 
         const countdown =
             setInterval(function () {
@@ -105,6 +351,29 @@
 
 
                     number.innerHTML = count;
+
+
+                    text.innerHTML =
+                        messages[count];
+
+
+                    /* Restart animation */
+
+                    number.style.animation = "none";
+
+                    text.style.animation = "none";
+
+
+                    void number.offsetWidth;
+
+                    void text.offsetWidth;
+
+
+                    number.style.animation =
+                        "countdownPop 1.2s ease";
+
+                    text.style.animation =
+                        "softFade 1s ease";
 
 
                 } else {
@@ -121,11 +390,10 @@
 
                     reveal.style.display = "block";
 
-
                 }
 
 
-            }, 1500);
+            }, 1800);
 
 
     </script>

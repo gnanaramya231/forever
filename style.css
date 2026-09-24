@@ -2928,3 +2928,74 @@ body:has(.fold-letter-section) {
     pointer-events: auto;
     transform: translateX(-50%) scale(1);
 }
+
+/* FRIEND PAGE TEXT VISIBILITY */
+
+.memory-intro {
+    color: #000000;
+    font-weight: 500;
+}
+
+.friends-note {
+    color: #9b6076;
+    font-weight: 500;
+}
+
+.friends-ending {
+    color: #fff0f5;
+    font-weight: 600;
+}
+
+/* B.TECH TEXT VISIBILITY */
+
+.memory-intro {
+    color: #000000;
+    font-weight: 600;
+}
+
+.btech-note {
+    color: #fff0f5;
+    font-weight: 500;
+}
+
+.btech-hint {
+    color: #000000;
+    font-weight: 600;
+}
+
+.btech-ending {
+    color: #f7ead2;
+    font-weight: 600;
+}
+
+/* SURPRISE PAGE TEXT COLORS */
+
+.surprise-section h2 {
+    color: #000000;
+    font-weight: 700;
+}
+
+.surprise-intro {
+    color: #fff0f5;
+    font-weight: 600;
+}
+
+.reels-section h3 {
+    color: #fff0c9;
+    font-weight: 700;
+}
+
+.reels-section > p {
+    color: #fff0f5;
+    font-weight: 600;
+}
+
+.final-area h2 {
+    color: #fff0c9;
+    font-weight: 700;
+}
+
+.final-area p {
+    color: #fff0ff;
+    font-weight: 600;
+}

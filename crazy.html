@@ -81,6 +81,8 @@
             box-shadow:
                 0 8px 25px rgba(0, 0, 0, 0.15);
 
+            cursor: pointer;
+
         }
 
 
@@ -118,8 +120,160 @@
 
             border-radius: 18px;
 
+            pointer-events: none;
+
         }
 
+
+        /* =========================
+           FULL SCREEN POPUP
+        ========================= */
+
+        .crazy-lightbox {
+
+            display: none;
+
+            position: fixed;
+
+            inset: 0;
+
+            background: rgba(0, 0, 0, 0.92);
+
+            z-index: 9999;
+
+            align-items: center;
+
+            justify-content: center;
+
+            padding: 30px;
+
+        }
+
+
+        .crazy-lightbox.active {
+
+            display: flex;
+
+        }
+
+
+        .crazy-lightbox img {
+
+            max-width: 92vw;
+
+            max-height: 90vh;
+
+            width: auto;
+
+            height: auto;
+
+            object-fit: contain;
+
+            border-radius: 12px;
+
+            box-shadow:
+                0 10px 40px rgba(0, 0, 0, 0.6);
+
+            animation: zoomIn 0.3s ease;
+
+        }
+
+
+        .crazy-lightbox video {
+
+            max-width: 92vw;
+
+            max-height: 85vh;
+
+            width: auto;
+
+            height: auto;
+
+            border-radius: 12px;
+
+            background: black;
+
+            box-shadow:
+                0 10px 40px rgba(0, 0, 0, 0.6);
+
+            animation: zoomIn 0.3s ease;
+
+        }
+
+
+        @keyframes zoomIn {
+
+            from {
+
+                transform: scale(0.8);
+
+                opacity: 0;
+
+            }
+
+            to {
+
+                transform: scale(1);
+
+                opacity: 1;
+
+            }
+
+        }
+
+
+        /* =========================
+           CLOSE BUTTON
+        ========================= */
+
+        .crazy-close {
+
+            position: fixed;
+
+            top: 18px;
+
+            right: 25px;
+
+            width: 48px;
+
+            height: 48px;
+
+            border: none;
+
+            border-radius: 50%;
+
+            background: white;
+
+            color: #c84b76;
+
+            font-size: 30px;
+
+            font-weight: bold;
+
+            cursor: pointer;
+
+            z-index: 10000;
+
+            box-shadow:
+                0 5px 15px rgba(0, 0, 0, 0.3);
+
+            transition: 0.3s ease;
+
+        }
+
+
+        .crazy-close:hover {
+
+            transform: rotate(90deg) scale(1.1);
+
+            background: #ffe4ec;
+
+        }
+
+
+        /* =========================
+           BACK BUTTON
+        ========================= */
 
         .back-button {
 
@@ -145,6 +299,37 @@
         }
 
 
+        .crazy-note {
+            max-width: 800px;
+            margin: 0 auto 12px;
+            color: #3f2930;
+            font-size: 17px;
+            font-weight: 600;
+            line-height: 1.7;
+        }
+
+        .crazy-hint {
+            max-width: 750px;
+            margin: 0 auto 35px;
+            color: #4a2c35;
+            font-size: 15px;
+            font-weight: 600;
+            line-height: 1.6;
+        }
+
+        .crazy-ending {
+            max-width: 850px;
+            margin: 50px auto 0;
+            color: #3f2930;
+            font-size: 18px;
+            font-weight: 600;
+            line-height: 1.8;
+        }
+
+        /* =========================
+           TABLET
+        ========================= */
+
         @media (max-width: 768px) {
 
             .crazy-gallery {
@@ -164,11 +349,68 @@
         }
 
 
+        /* =========================
+           MOBILE
+        ========================= */
+
         @media (max-width: 500px) {
+
+            .crazy-note {
+                font-size: 15px;
+            }
+
+            .crazy-hint {
+                font-size: 14px;
+            }
+
+            .crazy-ending {
+                font-size: 16px;
+                margin-top: 35px;
+            }
 
             .crazy-gallery {
 
                 grid-template-columns: 1fr;
+
+            }
+
+
+            .crazy-lightbox {
+
+                padding: 15px;
+
+            }
+
+
+            .crazy-lightbox img {
+
+                max-width: 95vw;
+
+                max-height: 85vh;
+
+            }
+
+
+            .crazy-lightbox video {
+
+                max-width: 95vw;
+
+                max-height: 80vh;
+
+            }
+
+
+            .crazy-close {
+
+                top: 12px;
+
+                right: 12px;
+
+                width: 42px;
+
+                height: 42px;
+
+                font-size: 26px;
 
             }
 
@@ -194,6 +436,16 @@
             Because the craziest moments become the funniest memories... 😂✨
         </p>
 
+        <p class="crazy-note">
+            Some memories make us smile, some make us laugh out loud...
+            and some make us wonder, "What were we even doing?" 😂❤️
+        </p>
+
+        <p class="crazy-hint">
+            Tap a photo to relive the moment, then explore the videos for
+            the full crazy memories. 📸🎥✨
+        </p>
+
 
 
         <!-- ========================= -->
@@ -209,73 +461,111 @@
         <div class="crazy-gallery">
 
 
-            <div class="crazy-card">
+            <div class="crazy-card"
+                 onclick="openPhoto('images/crazy1.jpeg')">
+
                 <img src="images/crazy1.jpeg"
                      alt="Crazy Memory 1">
+
             </div>
 
 
-            <div class="crazy-card">
+            <div class="crazy-card"
+                 onclick="openPhoto('images/crazy2.jpeg')">
+
                 <img src="images/crazy2.jpeg"
                      alt="Crazy Memory 2">
+
             </div>
 
 
-            <div class="crazy-card">
+            <div class="crazy-card"
+                 onclick="openPhoto('images/crazy3.jpeg')">
+
                 <img src="images/crazy3.jpeg"
                      alt="Crazy Memory 3">
+
             </div>
 
 
-            <div class="crazy-card">
+            <div class="crazy-card"
+                 onclick="openPhoto('images/crazy4.jpeg')">
+
                 <img src="images/crazy4.jpeg"
                      alt="Crazy Memory 4">
+
             </div>
 
 
-            <div class="crazy-card">
+            <div class="crazy-card"
+                 onclick="openPhoto('images/crazy5.jpeg')">
+
                 <img src="images/crazy5.jpeg"
                      alt="Crazy Memory 5">
+
             </div>
 
 
-            <div class="crazy-card">
+            <div class="crazy-card"
+                 onclick="openPhoto('images/crazy6.jpeg')">
+
                 <img src="images/crazy6.jpeg"
                      alt="Crazy Memory 6">
+
             </div>
 
 
-            <div class="crazy-card">
+            <div class="crazy-card"
+                 onclick="openPhoto('images/crazy7.jpeg')">
+
                 <img src="images/crazy7.jpeg"
                      alt="Crazy Memory 7">
+
             </div>
 
 
-            <div class="crazy-card">
+            <div class="crazy-card"
+                 onclick="openPhoto('images/crazy8.jpeg')">
+
                 <img src="images/crazy8.jpeg"
                      alt="Crazy Memory 8">
+
             </div>
 
 
-            <div class="crazy-card">
+            <div class="crazy-card"
+                 onclick="openPhoto('images/crazy9.jpeg')">
+
                 <img src="images/crazy9.jpeg"
                      alt="Crazy Memory 9">
+
             </div>
 
 
-            <div class="crazy-card">
+            <div class="crazy-card"
+                 onclick="openPhoto('images/crazy10.jpeg')">
+
                 <img src="images/crazy10.jpeg"
                      alt="Crazy Memory 10">
+
             </div>
 
-            <div class="crazy-card">
+
+            <div class="crazy-card"
+                 onclick="openPhoto('images/crazy11.jpeg')">
+
                 <img src="images/crazy11.jpeg"
                      alt="Crazy Memory 11">
+
             </div>
 
-            <div class="crazy-card">
+
+            <div class="crazy-card"
+                 onclick="openPhoto('images/crazy12.jpeg')">
+
                 <img src="images/crazy12.jpeg"
                      alt="Crazy Memory 12">
+
             </div>
 
 
@@ -296,11 +586,12 @@
         <div class="crazy-gallery">
 
 
-            <div class="crazy-card">
+            <div class="crazy-card"
+                 onclick="openVideo('videos/crazy1.mp4')">
 
                 <video
                     class="crazy-video"
-                    controls
+                    muted
                     playsinline>
 
                     <source
@@ -312,11 +603,12 @@
             </div>
 
 
-            <div class="crazy-card">
+            <div class="crazy-card"
+                 onclick="openVideo('videos/crazy2.mp4')">
 
                 <video
                     class="crazy-video"
-                    controls
+                    muted
                     playsinline>
 
                     <source
@@ -328,11 +620,12 @@
             </div>
 
 
-            <div class="crazy-card">
+            <div class="crazy-card"
+                 onclick="openVideo('videos/crazy3.mp4')">
 
                 <video
                     class="crazy-video"
-                    controls
+                    muted
                     playsinline>
 
                     <source
@@ -344,11 +637,12 @@
             </div>
 
 
-            <div class="crazy-card">
+            <div class="crazy-card"
+                 onclick="openVideo('videos/crazy4.mp4')">
 
                 <video
                     class="crazy-video"
-                    controls
+                    muted
                     playsinline>
 
                     <source
@@ -360,11 +654,12 @@
             </div>
 
 
-            <div class="crazy-card">
+            <div class="crazy-card"
+                 onclick="openVideo('videos/crazy5.mp4')">
 
                 <video
                     class="crazy-video"
-                    controls
+                    muted
                     playsinline>
 
                     <source
@@ -375,11 +670,13 @@
 
             </div>
 
-            <div class="crazy-card">
+
+            <div class="crazy-card"
+                 onclick="openVideo('videos/crazy6.mp4')">
 
                 <video
                     class="crazy-video"
-                    controls
+                    muted
                     playsinline>
 
                     <source
@@ -390,11 +687,13 @@
 
             </div>
 
-            <div class="crazy-card">
+
+            <div class="crazy-card"
+                 onclick="openVideo('videos/crazy7.mp4')">
 
                 <video
                     class="crazy-video"
-                    controls
+                    muted
                     playsinline>
 
                     <source
@@ -405,11 +704,13 @@
 
             </div>
 
-            <div class="crazy-card">
+
+            <div class="crazy-card"
+                 onclick="openVideo('videos/crazy8.mp4')">
 
                 <video
                     class="crazy-video"
-                    controls
+                    muted
                     playsinline>
 
                     <source
@@ -420,11 +721,13 @@
 
             </div>
 
-            <div class="crazy-card">
+
+            <div class="crazy-card"
+                 onclick="openVideo('videos/crazy9.mp4')">
 
                 <video
                     class="crazy-video"
-                    controls
+                    muted
                     playsinline>
 
                     <source
@@ -435,11 +738,13 @@
 
             </div>
 
-            <div class="crazy-card">
+
+            <div class="crazy-card"
+                 onclick="openVideo('videos/crazy10.mp4')">
 
                 <video
                     class="crazy-video"
-                    controls
+                    muted
                     playsinline>
 
                     <source
@@ -450,11 +755,13 @@
 
             </div>
 
-            <div class="crazy-card">
+
+            <div class="crazy-card"
+                 onclick="openVideo('videos/crazy11.mp4')">
 
                 <video
                     class="crazy-video"
-                    controls
+                    muted
                     playsinline>
 
                     <source
@@ -465,11 +772,13 @@
 
             </div>
 
-            <div class="crazy-card">
+
+            <div class="crazy-card"
+                 onclick="openVideo('videos/crazy12.mp4')">
 
                 <video
                     class="crazy-video"
-                    controls
+                    muted
                     playsinline>
 
                     <source
@@ -486,6 +795,36 @@
 
 
         <!-- ========================= -->
+        <!-- FULL SCREEN POPUP -->
+        <!-- ========================= -->
+
+
+        <div class="crazy-lightbox"
+             id="crazyLightbox"
+             onclick="closeCrazy(event)">
+
+
+            <button class="crazy-close"
+                    onclick="closeCrazy(event)">
+
+                ×
+
+            </button>
+
+
+            <div id="crazyPopupContent"></div>
+
+
+        </div>
+
+
+
+        <div class="crazy-ending">
+            So many crazy moments, so many laughs...<br>
+            and somehow, every silly little moment became a memory worth keeping. 🤪❤️
+        </div>
+
+        <!-- ========================= -->
         <!-- BACK BUTTON -->
         <!-- ========================= -->
 
@@ -499,6 +838,129 @@
 
 
     </section>
+
+
+
+    <!-- ========================= -->
+    <!-- JAVASCRIPT -->
+    <!-- ========================= -->
+
+
+    <script>
+
+        const crazyLightbox =
+            document.getElementById("crazyLightbox");
+
+        const crazyPopupContent =
+            document.getElementById("crazyPopupContent");
+
+
+        /* =========================
+           OPEN PHOTO
+        ========================= */
+
+        function openPhoto(src) {
+
+            crazyPopupContent.innerHTML = `
+
+                <img
+                    src="${src}"
+                    alt="Crazy Memory">
+
+            `;
+
+
+            crazyLightbox.classList.add("active");
+
+            document.body.style.overflow = "hidden";
+
+        }
+
+
+        /* =========================
+           OPEN VIDEO
+        ========================= */
+
+        function openVideo(src) {
+
+            crazyPopupContent.innerHTML = `
+
+                <video
+                    controls
+                    autoplay
+                    playsinline>
+
+                    <source
+                        src="${src}"
+                        type="video/mp4">
+
+                    Your browser does not support
+                    the video tag.
+
+                </video>
+
+            `;
+
+
+            crazyLightbox.classList.add("active");
+
+            document.body.style.overflow = "hidden";
+
+        }
+
+
+        /* =========================
+           CLOSE POPUP
+        ========================= */
+
+        function closeCrazy(event) {
+
+            if (
+
+                event &&
+
+                event.target !== crazyLightbox &&
+
+                !event.target.classList.contains("crazy-close")
+
+            ) {
+
+                return;
+
+            }
+
+
+            crazyLightbox.classList.remove("active");
+
+            crazyPopupContent.innerHTML = "";
+
+            document.body.style.overflow = "";
+
+        }
+
+
+        /* =========================
+           ESC KEY
+        ========================= */
+
+        document.addEventListener(
+            "keydown",
+            function(event) {
+
+                if (event.key === "Escape") {
+
+                    crazyLightbox.classList.remove("active");
+
+                    crazyPopupContent.innerHTML = "";
+
+                    document.body.style.overflow = "";
+
+                }
+
+            }
+        );
+
+    </script>
 
 
 </body>
